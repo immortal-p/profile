@@ -2,17 +2,13 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 const ScrollLine = () => {
-    // 1. Создаем ссылку на контейнер (чтобы линия знала, относительно чего считаем скролл)
-    // Если нужно, чтобы заполнялось по всей странице, ref можно не использовать
     const containerRef = useRef(null);
 
-    // 2. Получаем значение прокрутки (от 0 до 1)
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"] // Начать когда низ экрана коснется верха блока, закончить когда верх блока уйдет
+        offset: ["start end", "end start"]
     });
 
-    // 3. Делаем движение плавным (spring)
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
