@@ -30,7 +30,7 @@ const VericalLines = () => {
                     transition={{ duration: 2, ease: "circOut" }}
                     style={{
                         originY: 0,
-                        height: "100vh",
+                        height: "110vh",
                         width: "100%",
                         background: line.gradient,
                     }}
