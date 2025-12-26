@@ -21,7 +21,7 @@ const Header = () => {
     ]
 
     return (
-        <div className="flex items-center justify-between px-45 w-full min-h-10 mt-5">
+        <div className="flex items-center justify-between mx-auto container px-4 min-h-10 mt-5">
             
             <div className="flex items-center gap-2">
                 <img src={logo} alt="Logo" />
@@ -40,8 +40,8 @@ const Header = () => {
                                         onClick={(e) => location.pathname === item.path && e.preventDefault()}
                                         className={`flex items-center transition-colors ${
                                             isActive
-                                            ? "pointer-events-none text-(--icon-cl) [&>span]:text-(--white-cl)"
-                                            : "text-(--icon-cl) [&>span]:text-(--text-cl) [&>span]:transition [&>span]:duration-300 [&>span]:hover:text-(--white-cl)"
+                                            ? "pointer-events-none text-(--icon-cl) [&>span]:text-white"
+                                            : "text-(--icon-cl) [&>span]:text-(--text-cl) [&>span]:transition [&>span]:duration-300 [&>span]:hover:text-white"
                                         }`}
                                     >
                                         #<span>{item.label}</span>
