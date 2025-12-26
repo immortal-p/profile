@@ -20,7 +20,10 @@
     "framer-motion": "^12.23.26",
     "i18next": "^25.7.3",
     "lucide-react": "^0.556.0",
+<<<<<<< HEAD
     "motion": "^12.23.26",
+=======
+>>>>>>> ab519eae760816064ae0b91da93e3db66ac6845f
     "next-themes": "^0.4.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
