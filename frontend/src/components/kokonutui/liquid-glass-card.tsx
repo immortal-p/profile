@@ -180,7 +180,7 @@ function LiquidGlassCard({
 
       <div className="relative z-10">{children}</div>
 
-      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg bg-linear-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:via-white/5" />
+      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg bg-linear-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-10 dark:via-white/5" />
     </Card>
   );
 }
