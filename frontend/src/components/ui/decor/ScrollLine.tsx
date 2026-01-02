@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 
-const ScrollLine = () => {
+const ScrollLine = ({width}: any) => {
     const containerRef = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -22,7 +22,7 @@ const ScrollLine = () => {
                     scaleX: scaleX,
                     originX: 0,
                     height: "1px",
-                    width: "90%",
+                    width: width,
                     background: "var(--icon-cl)",
                     position: "relative"
                 }}

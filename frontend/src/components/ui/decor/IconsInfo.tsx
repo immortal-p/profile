@@ -42,7 +42,7 @@ const IconInfo = () => {
                     [&>a]:*:cursor-pointer"
             >
                 <Link to={"https://github.com/immortal-p"}><FaGithub size={28}/></Link>
-                <Link to=""><FaTelegram size={28}/></Link>
+                <Link to={"https://web.telegram.org/k/#@Spru71k"}><FaTelegram size={28}/></Link>
                 <Link to=""><IoLogoFigma size={28}/></Link>
             </motion.div>
         </div>
