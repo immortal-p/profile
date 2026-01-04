@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import HomePage from '@/pages/Home/HomePage'
+import NotFountPage from '@/pages/404'
 
 function RouterLayout() {
     return (
@@ -10,11 +11,12 @@ function RouterLayout() {
 }
 
 const App = () => {
-    return ( 
+    return (
         <BrowserRouter>
             <Routes>
                 <Route element={<RouterLayout />}>
-                    <Route path='/' element={<HomePage />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="*" element={<NotFountPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
