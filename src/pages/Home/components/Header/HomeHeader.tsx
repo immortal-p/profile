@@ -7,7 +7,7 @@ import {
     NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher/LanguageSwitcher'
-import logo from '@/assets/icons/logo.svg'
+import logo from '@/assets/icons/logo.webp'
 import SnowParticles from './SnowParticles'
 
 type SectionId = 'home' | 'works' | 'skills' | 'about' | 'contacts'
@@ -62,8 +62,8 @@ const HomeHeader = () => {
         >
             <SnowParticles />
             <div className="relative flex items-center gap-2 z-10">
-                <img src={logo} alt="Logo" />
-                <span className="text-(--white-cl)">Profile</span>
+                <img src={logo} alt="Logo" className="h-8" />
+                <span className="text-(--white-cl) -ml-1.5 font-bold">Profile</span>
             </div>
 
             <NavigationMenu className="relative z-10 max-w-[44%] w-full [&>div]:w-full">

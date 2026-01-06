@@ -7,7 +7,7 @@ import { CardContent, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { LiquidGlassCard } from '@/components/kokonutui/liquid-glass-card'
-import { useTranslation } from 'react-i18next' 
+import { useTranslation } from 'react-i18next'
 
 interface ProjectsList {
     id: number
@@ -87,8 +87,8 @@ const InfoProjects = () => {
                             <img
                                 src={project.imageUrl}
                                 alt={project.imageAlt}
-                                loading='lazy'
-                                decoding='async'
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover rounded-tr-md rounded-tl-md"
                             />
                         </div>
