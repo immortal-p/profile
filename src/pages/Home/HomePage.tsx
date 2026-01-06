@@ -1,30 +1,32 @@
 import { motion } from 'framer-motion'
-import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im'
-import { CgArrowLongRightC } from 'react-icons/cg'
+import quotesLeft from '@/assets/icons/quotesLeft.svg'
+import quotesRight from '@/assets/icons/quotesRight.svg'
+import arrowLongRight from '@/assets/icons/arrowLongRight.png'
 import squareMin from '@/assets/icons/squareMin.svg'
 import square from '@/assets/icons/squreMall.svg'
-import startImg from '@/assets/images/img_start.png'
-import imgAboutMe from '@/assets/images/img_aboutMeN.png'
+import startImg from '@/assets/images/img_start.webp'
+import imgAboutMe from '@/assets/images/img_aboutMe.webp'
 import geomFrom from '@/assets/icons/geom-form.svg'
 import matrix from '@/assets/icons/matrix.svg'
 import matrixLong from '@/assets/icons/matrix-long.svg'
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item'
 import { Link } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import HomeHeader from './components/Header/HomeHeader'
 import VericalLines from '@/components/ui/decor/VerticalLines'
 import IconsInfo from '@/components/ui/decor/IconsInfo'
 import ScrollLine from '@/components/ui/decor/ScrollLine'
 import Glow from '@/components/ui/decor/Glow'
-import InfoProjects from './components/InfoProjects'
-import SkillsGrid from './components/SkillsGrid'
 import SideElement from '@/components/ui/decor/SideElement'
-import Contacts from './components/Contacts'
 import { LiquidGlassCard, LiquidButton } from '@/components/kokonutui/liquid-glass-card'
 import { AnimatedSpan, Terminal, TypingAnimation } from '@/components/ui/terminal'
 import { useTranslation, Trans } from 'react-i18next'
 
 const HomePage = () => {
     const { t } = useTranslation()
+    const InfoProjects = lazy(() => import('./components/InfoProjects'))
+    const SkillsGrid = lazy(() => import('./components/SkillsGrid'))
+    const Contacts = lazy(() => import('./components/Contacts'))
 
     return (
         <main className="w-full relative">
@@ -99,17 +101,21 @@ const HomePage = () => {
                             className="mt-28 flex flex-col items-center w-full"
                         >
                             <div className="flex flex-col items-end max-w-max">
-                                <LiquidGlassCard className="p-6 z-10 border-(--text-cl) rounded-br-none *:rounded-br-none cursor-pointer overflow-visible">
-                                    <ImQuotesLeft
+                                <LiquidGlassCard className="p-6 z-10 border-(--text-cl) rounded-br-none *:rounded-br-none overflow-visible">
+                                    <img
+                                        src={quotesLeft}
+                                        sizes="26"
+                                        alt="quotes left"
                                         className="absolute left-[-0.8em] top-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80"
-                                        size={26}
                                     />
                                     <ItemContent className="*:text-[22px] *:text-(--white-cl) *:m-auto">
                                         <ItemTitle>{t('hero.quote')}</ItemTitle>
                                     </ItemContent>
-                                    <ImQuotesRight
+                                    <img
+                                        src={quotesRight}
+                                        sizes="26"
+                                        alt="quotes right"
                                         className="absolute right-[-0.8em] bottom-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80"
-                                        size={26}
                                     />
                                 </LiquidGlassCard>
 
@@ -148,20 +154,18 @@ const HomePage = () => {
 
                                 <p className="flex items-center max-w-[10%] w-auto border-none">
                                     <Link
-                                        to="404"
+                                        to="*"
                                         className="text-[16px] text-(--white-cl) font-medium"
                                     >
                                         {t('projects.viewAll')}
                                     </Link>
-                                    <CgArrowLongRightC
-                                        size={18}
-                                        color="var(--text-cl)"
-                                        className="ml-2.5"
-                                    />
+                                    <img src={arrowLongRight} className="ml-1 h-3" alt="" />
                                 </p>
                             </ItemContent>
 
-                            <InfoProjects />
+                            <Suspense fallback={null}>
+                                <InfoProjects />
+                            </Suspense>
                         </Item>
                     </div>
                 </div>
@@ -236,7 +240,9 @@ const HomePage = () => {
                         </motion.div>
 
                         <div className="max-w-[58%]">
-                            <SkillsGrid />
+                            <Suspense fallback={null}>
+                                <SkillsGrid />
+                            </Suspense>
                         </div>
                     </ItemContent>
                 </Item>
@@ -275,10 +281,10 @@ const HomePage = () => {
                                     <h4>{t('about.greeting')}</h4>
                                     <p className="mt-8">{t('about.paragraphs.first')}</p>
                                     <p className="mt-8">{t('about.paragraphs.second')}</p>
-                                    <Link to="/aboutMe" className="inline-block">
+                                    <Link to="*" className="inline-block">
                                         <LiquidButton className="mt-9 cursor-pointer *:rounded-sm *:flex *:items-center *:text-(--white-cl)">
                                             <p>{t('about.button')}</p>
-                                            <CgArrowLongRightC className="ml-2" />
+                                            <img src={arrowLongRight} className="ml-1 h-2" alt="" />
                                         </LiquidButton>
                                     </Link>
                                 </motion.div>
@@ -338,7 +344,9 @@ const HomePage = () => {
                                     <p className="whitespace-pre-line">{t('contacts.text')}</p>
                                 </motion.div>
                                 <div className="max-w-[50%] w-full flex items-center justify-end mr-20">
-                                    <Contacts />
+                                    <Suspense fallback={null}>
+                                        <Contacts />
+                                    </Suspense>
                                 </div>
                             </ItemContent>
                         </Item>
