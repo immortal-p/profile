@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import HomePage from '@/pages/Home/HomePage'
 import NotFountPage from '@/pages/404'
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 function RouterLayout() {
     return (
@@ -22,7 +22,7 @@ const App = () => {
                     </Route>
                 </Routes>
             </BrowserRouter>
-            
+
             <SpeedInsights />
         </>
     )

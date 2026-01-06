@@ -41,7 +41,7 @@ const IconInfo = () => {
                         height="46"
                         fill="none"
                         viewBox="0 0 32 32"
-                        className='*:transition *:duration-300 hover:*:fill-(--white-cl)'
+                        className="*:transition *:duration-300 hover:*:fill-(--white-cl)"
                     >
                         <path
                             fill="#8d9094"
@@ -56,7 +56,7 @@ const IconInfo = () => {
                         height="29"
                         fill="#8d9094"
                         viewBox="0 0 32 17"
-                        className='ml-2 *:transition *:duration-300 hover:*:fill-(--white-cl)'
+                        className="ml-2 *:transition *:duration-300 hover:*:fill-(--white-cl)"
                     >
                         <path
                             fill="#8d9094"
@@ -71,7 +71,7 @@ const IconInfo = () => {
                         height="46"
                         fill="none"
                         viewBox="0 0 32 32"
-                        className='*:transition *:duration-300 hover:*:fill-(--white-cl)'
+                        className="*:transition *:duration-300 hover:*:fill-(--white-cl)"
                     >
                         <path
                             fill="#8d9094"
