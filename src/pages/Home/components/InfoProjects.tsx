@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
-import { IoCodeSlash } from 'react-icons/io5'
+import code from '@/assets/icons/code.svg'
 import infostormImg from '@/assets/images/infostormImg.png'
-import nekoDash from '@/assets/images/nekoDashImg.webp'
-import nekoChat from '@/assets/images/NekoChatImg.jpg'
+import nekoDash from '@/assets/images/weatherDashboardImg.webp'
+import nekoChat from '@/assets/images/nekoChatImg.webp'
 import { CardContent, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { LiquidGlassCard } from '@/components/kokonutui/liquid-glass-card'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next' 
 
 interface ProjectsList {
     id: number
@@ -87,6 +87,8 @@ const InfoProjects = () => {
                             <img
                                 src={project.imageUrl}
                                 alt={project.imageAlt}
+                                loading='lazy'
+                                decoding='async'
                                 className="w-full h-full object-cover rounded-tr-md rounded-tl-md"
                             />
                         </div>
@@ -120,10 +122,8 @@ const InfoProjects = () => {
                                 </Button>
                             )}
                             <Button className="border rounded-sm border-(--text-cl) text-(--white-cl)">
-                                <Link to={project.projectUrl} className="p-2">
-                                    {project.linkText}
-                                </Link>
-                                <IoCodeSlash />
+                                <Link to={project.projectUrl}>{project.linkText}</Link>
+                                <img src={code} className="h-4" alt="" />
                             </Button>
                         </CardContent>
                     </LiquidGlassCard>

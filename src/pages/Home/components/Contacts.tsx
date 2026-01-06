@@ -1,8 +1,9 @@
 import { LiquidGlassCard } from '@/components/kokonutui/liquid-glass-card'
-import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
-import { IoMdMailUnread } from 'react-icons/io'
+import discord from '@/assets/icons/discord.svg'
+import mail from '@/assets/icons/mail.svg'
+import telegram from '@/assets/icons/telegram.svg'
 import { CardContent } from '@/components/ui/card'
-import santaHat from '@/assets/images/santaHat.png'
+import santaHat from '@/assets/images/santaHat.webp'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { TypingAnimation } from '@/components/ui/typing-animation'
@@ -42,7 +43,7 @@ const Contacts = () => {
                 <CardContent className="p-4 [&>p]:text-[16px] group *:my-4 w-full">
                     <p className="font-bold text-(--white-cl)">{t('contacts.messages')}</p>
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
-                        <FaDiscord size={32} />
+                        <img src={discord} className="h-5.5" />
                         <GlassCopyTooltip text="solid22p">
                             {isVisible && (
                                 <TypingAnimation className="cursor-pointer ml-2 leading-none">
@@ -52,7 +53,7 @@ const Contacts = () => {
                         </GlassCopyTooltip>
                     </div>
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
-                        <IoMdMailUnread size={32} />
+                        <img src={mail} className="h-5" />
                         <GlassCopyTooltip text="immortalkil4oy@gmail.com">
                             {isVisible && (
                                 <TypingAnimation
@@ -65,7 +66,7 @@ const Contacts = () => {
                         </GlassCopyTooltip>
                     </div>
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
-                        <FaTelegramPlane size={32} />
+                        <img src={telegram} className="h-7" />
                         <GlassCopyTooltip text="@Spru71k">
                             {isVisible && (
                                 <TypingAnimation
