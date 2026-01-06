@@ -25,7 +25,7 @@ This is a lightweight, single-page portfolio designed with a "less is more" phil
 - Library	React 18
 - Styling	Tailwind CSS
 - Motion	Framer Motion
-- Icons	Lucide React / Simple Icons
+- Icons	    Local Icons
 
 ---
 
