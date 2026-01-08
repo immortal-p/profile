@@ -22,7 +22,7 @@ const LinesContacts = () => {
 
 const IconInfo = () => {
     return (
-        <div className="absolute top-0 w-px left-[3%]">
+        <div className="absolute top-0 w-px z-40 left-[1.5%] min-[1650px]:left-[3%] hidden min-[1100px]:block">
             <LinesContacts />
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
@@ -41,7 +41,7 @@ const IconInfo = () => {
                         height="46"
                         fill="none"
                         viewBox="0 0 32 32"
-                        className="*:transition *:duration-300 hover:*:fill-(--white-cl)"
+                        className='*:transition *:duration-300 hover:*:fill-(--white-cl)'
                     >
                         <path
                             fill="#8d9094"
@@ -56,7 +56,7 @@ const IconInfo = () => {
                         height="29"
                         fill="#8d9094"
                         viewBox="0 0 32 17"
-                        className="ml-2 *:transition *:duration-300 hover:*:fill-(--white-cl)"
+                        className='ml-2 *:transition *:duration-300 hover:*:fill-(--white-cl)'
                     >
                         <path
                             fill="#8d9094"
@@ -71,7 +71,7 @@ const IconInfo = () => {
                         height="46"
                         fill="none"
                         viewBox="0 0 32 32"
-                        className="*:transition *:duration-300 hover:*:fill-(--white-cl)"
+                        className='*:transition *:duration-300 hover:*:fill-(--white-cl)'
                     >
                         <path
                             fill="#8d9094"
