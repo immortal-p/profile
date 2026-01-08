@@ -32,7 +32,7 @@ const HomePage = () => {
         <main className="w-full relative">
             <HomeHeader />
 
-            <section className="relative w-full pt-32" id="home">
+            <section className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12" id="home">
                 <SideElement side="right" top="86%" right="3%">
                     <img src={squareMin} alt="square" className="h-22" />
                 </SideElement>
@@ -40,25 +40,25 @@ const HomePage = () => {
                 <Glow right="28%" top="0" />
                 <Glow left="10%" bottom="5%" />
 
-                <div className="container mx-auto px-4 relative z-10">
+                <div className="container mx-auto relative z-10 px-0 xl:p-4 max-lg:max-w-[95%] max-md:px-4">
                     <div className="flex flex-wrap justify-between w-full">
                         <motion.div
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 2, ease: 'easeOut' }}
-                            className="max-w-1/2 z-20"
+                            className="max-w-[45%] z-20 ml-6 max-lg:max-w-1/2 max-md:max-w-full max-md:ml-0"
                         >
                             <ItemContent className="mt-22">
-                                <ItemTitle className="inline text-[34px] max-w-130 font-bold text-(--white-cl) [&>strong]:text-(--icon-cl)">
+                                <ItemTitle className="inline font-bold text-[34px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] max-w-130 max-md:w-full text-(--white-cl) [&>strong]:text-(--icon-cl) max-lg:leading-tight max-md:leading-normal">
                                     <Trans i18nKey={'hero.title'}>
                                         Bargest is a <strong>web designer</strong> and{' '}
                                         <strong>front-end developer</strong>
                                     </Trans>
                                 </ItemTitle>
-                                <ItemDescription className="mt-6 text-[16px] max-w-140 text-(--text-cl)">
+                                <ItemDescription className="mt-6 text-[16px] max-w-140 max-md:max-w-[80%] text-(--text-cl) max-md:text-[15px] max-sm:text-[14px] max-[840px]:mt-2">
                                     {t('hero.description')}
                                 </ItemDescription>
-                                <ItemActions className="mt-6">
+                                <ItemActions className="mt-6 max-[840px]:mt-2 max-md:hidden">
                                     <Link target="_blank" to="https://web.telegram.org/k/#@Spru71k">
                                         <LiquidButton className="*:border-(--icon-cl) *:rounded-md text-[16px] text-(--white-cl) transition duration-200 ease-in hover:text-(--white) cursor-pointer">
                                             {t('hero.button')}
@@ -72,18 +72,18 @@ const HomePage = () => {
                             initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 2, ease: 'easeOut' }}
-                            className="max-w-1/2 w-full z-20 flex justify-center relative"
+                            className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-6"
                         >
-                            <Item className="flex justify-end p-0 w-[78%]">
-                                <img src={startImg} alt="" className="w-[84%]" />
+                            <Item className="flex justify-start p-0 w-[78%] max-lg:w-full">
+                                <img src={startImg} alt="" className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1]" />
                                 <img
                                     src={geomFrom}
                                     alt=""
-                                    className="absolute left-[18%] top-12 w-[24%]"
+                                    className="absolute left-[18%] top-12 w-[24%] max-lg:top-10 max-md:left-[-5%]"
                                 />
                                 <LiquidGlassCard
                                     className="
-                                        max-w-full w-[89%] right-[-1em] mt-[-1em]
+                                        max-w-full w-[89%] max-xl:w-full max-md:w-[80%] right-[-1em] max-md:right-0 mt-[-1em]
                                         flex items-center font-medium text-[16px] border border-(--text-cl) *:border-(--text-cl) p-3
                                         before:w-4 before:h-4 before:bg-(--icon-cl) before:block before:mr-2.5"
                                 >
@@ -98,29 +98,29 @@ const HomePage = () => {
                             initial={{ opacity: 0, y: -100 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.5, ease: 'easeOut' }}
-                            className="mt-28 flex flex-col items-center w-full"
+                            className="mt-28 flex flex-col items-center w-full max-md:hidden"
                         >
                             <div className="flex flex-col items-end max-w-max">
-                                <LiquidGlassCard className="p-6 z-10 border-(--text-cl) rounded-br-none *:rounded-br-none overflow-visible">
+                                <LiquidGlassCard className="p-6 z-10 border-(--text-cl) rounded-br-none *:rounded-br-none overflow-visible max-lg:p-4">
                                     <img
                                         src={quotesLeft}
                                         sizes="26"
                                         alt="quotes left"
-                                        className="absolute left-[-0.8em] top-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80"
+                                        className="absolute left-[-0.8em] top-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80 max-lg:top-[-2em]"
                                     />
-                                    <ItemContent className="*:text-[22px] *:text-(--white-cl) *:m-auto">
+                                    <ItemContent className="*:text-[22px] *:text-(--white-cl) *:m-auto max-lg:*:text-[20px]">
                                         <ItemTitle>{t('hero.quote')}</ItemTitle>
                                     </ItemContent>
                                     <img
                                         src={quotesRight}
                                         sizes="26"
                                         alt="quotes right"
-                                        className="absolute right-[-0.8em] bottom-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80"
+                                        className="absolute right-[-0.8em] bottom-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80 max-lg:bottom-[-2em]"
                                     />
                                 </LiquidGlassCard>
 
                                 <LiquidGlassCard className="p-2 cursor-pointer border-(--text-cl) rounded-tl-none rounded-tr-none border-t-0 *:rounded-tl-none *:rounded-tr-none">
-                                    <ItemContent className="*:text-[20px] *:text-(--white-cl) px-4">
+                                    <ItemContent className="*:text-[20px] *:text-(--white-cl) px-4 max-lg:*:text-[18px]">
                                         <ItemTitle>{t('hero.author')}</ItemTitle>
                                     </ItemContent>
                                 </LiquidGlassCard>
