@@ -43,12 +43,12 @@ export function LanguageSwitcher() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="bg-popover border border-(--text-cl) rounded-md shadow-md"
+                    className="bg-popover border border-(--text-cl) rounded-md shadow-md max-md:bg-(--background)"
                 >
                     {language.map((lng) => (
                         <DropdownMenuItem
                             key={lng.code}
-                            className={`cursor-pointer justify-center text-(--text-cl) hover:text-(--white) max-w-10 ${
+                            className={`cursor-pointer justify-center text-(--text-cl) hover:text-(--white) max-w-10 max-md:bg-(--background) ${
                                 i18n.language === lng.code ? 'bg-accent text-accent-foreground' : ''
                             }`}
                             onClick={() => changeLanguage(lng.code)}

@@ -4,10 +4,11 @@
 
 A high-performance personal portfolio built with Vite, React, and Tailwind CSS. <br>
 Focused on speed, clean typography, and subtle motion.
+
 </div>
 <br>
 
-## Overview 
+## Overview
 
 This is a lightweight, single-page portfolio designed with a "less is more" philosophy. It showcases my technical stack, projects, and contact information through a streamlined interface.
 
@@ -21,11 +22,11 @@ This is a lightweight, single-page portfolio designed with a "less is more" phil
 
 ## Tech Stack
 
-- Bundler	Vite
-- Library	React 18
-- Styling	Tailwind CSS
-- Motion	Framer Motion
-- Icons	    Local Icons
+- Bundler Vite
+- Library React 18
+- Styling Tailwind CSS
+- Motion Framer Motion
+- Icons Local Icons
 
 ---
 
@@ -34,19 +35,22 @@ This is a lightweight, single-page portfolio designed with a "less is more" phil
 Setup
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/immortal-p/profile.git
 cd profile
 ```
 
 2.Install dependencies
+
 ```bash
 npm install
 ```
 
 3.Start the dev sever
+
 ```bash
-npm run dev 
+npm run dev
 ```
 
 ---

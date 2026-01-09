@@ -15,23 +15,24 @@ const Glow = ({ top, left, right, bottom, size = '400px', hideBelow }: GlowSetti
     const isHidden = useResponsiveVisibility(hideBelow)
     const prefersReducedMotion = useReducedMotion()
 
-    if(isHidden) return null
+    if (isHidden) return null
 
     return (
         <motion.div
             initial={prefersReducedMotion ? false : { opacity: 0 }}
             whileInView={prefersReducedMotion ? undefined : { opacity: 1 }}
-            transition={{ 
+            transition={{
                 duration: prefersReducedMotion ? 0 : 1.5,
                 ease: 'easeOut',
-                delay: prefersReducedMotion ? 0 : 0.5 }}
+                delay: prefersReducedMotion ? 0 : 0.5,
+            }}
             viewport={{ once: true, amount: 0.5 }}
             className="absolute z-10 pointer-events-none"
             style={{ top, left, right, bottom }}
         >
             <div
                 style={{ width: size, height: size }}
-                className='rounded-full bg-(--icon-cl) opacity-15 blur-[120px]'
+                className="rounded-full bg-(--icon-cl) opacity-15 blur-[120px]"
             />
         </motion.div>
     )

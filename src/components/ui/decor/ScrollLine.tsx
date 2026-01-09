@@ -16,7 +16,7 @@ const ScrollLine = ({ width }: any) => {
     })
 
     return (
-        <div ref={containerRef} className="w-full">
+        <div ref={containerRef} className="w-full max-sm:hidden">
             <motion.div
                 style={{
                     scaleX: scaleX,

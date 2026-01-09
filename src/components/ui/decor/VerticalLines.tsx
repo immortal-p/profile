@@ -38,19 +38,16 @@ const VericalLines = () => {
     return linesConfig.map((line) => {
         const isHidden = useResponsiveVisibility(line.hideBelow)
 
-        if(isHidden) return null
+        if (isHidden) return null
 
         return (
-            <div
-                key={line.id}
-                className={`absolute top-0 w-px z-1 ${line.position}`}
-            >
+            <div key={line.id} className={`absolute top-0 w-px z-1 ${line.position}`}>
                 <motion.div
-                    initial={prefersReducedMotion ? false : {scaleY: 0 }}
+                    initial={prefersReducedMotion ? false : { scaleY: 0 }}
                     animate={prefersReducedMotion ? undefined : { scaleY: 1 }}
                     transition={{
-                        duration:prefersReducedMotion ? 0 : 2, 
-                        ease: 'circOut'
+                        duration: prefersReducedMotion ? 0 : 2,
+                        ease: 'circOut',
                     }}
                     style={{
                         originY: 0,
@@ -60,7 +57,8 @@ const VericalLines = () => {
                     }}
                 />
             </div>
-    )})
+        )
+    })
 }
 
 export default VericalLines
