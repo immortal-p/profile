@@ -1,12 +1,11 @@
-import { motion } from 'framer-motion'
-
-type HideBelow = 'md' | 'lg'
+import { motion, useReducedMotion } from 'framer-motion'
+import { useResponsiveVisibility } from '@/shared/hooks/useResponsiveVisibility'
 
 interface LineConfig {
-    id: string,
-    position: string,
-    gradient: string,
-    hideBelow: HideBelow
+    id: string
+    position: string
+    gradient: string
+    hideBelow: 'md' | 'lg'
 }
 
 const linesConfig: LineConfig[] = [
@@ -29,31 +28,39 @@ const linesConfig: LineConfig[] = [
         position: 'right-[14.5%]',
         gradient:
             'linear-gradient(to bottom, #333 0%, #333 18%, var(--icon-cl) 21%, var(--icon-cl) 47%, #333 50%, #333 100%)',
-        hideBelow: 'lg'
+        hideBelow: 'lg',
     },
 ]
 
 const VericalLines = () => {
-    const HIDE_BELOW_CLASS: Record<'md' | 'lg', string> = {
-      md: 'max-md:hidden',
-      lg: 'max-lg:hidden',
-    }
+    const prefersReducedMotion = useReducedMotion()
 
-    return linesConfig.map((line) => (
-        <div key={line.id} className={`absolute top-0 w-px z-1 ${line.position} ${HIDE_BELOW_CLASS[line.hideBelow]}`}>
-            <motion.div
-                initial={{ scaleY: 0 }}
-                animate={{ scaleY: 1 }}
-                transition={{ duration: 2, ease: 'circOut' }}
-                style={{
-                    originY: 0,
-                    height: '110vh',
-                    width: '100%',
-                    background: line.gradient,
-                }}
-            />
-        </div>
-    ))
+    return linesConfig.map((line) => {
+        const isHidden = useResponsiveVisibility(line.hideBelow)
+
+        if(isHidden) return null
+
+        return (
+            <div
+                key={line.id}
+                className={`absolute top-0 w-px z-1 ${line.position}`}
+            >
+                <motion.div
+                    initial={prefersReducedMotion ? false : {scaleY: 0 }}
+                    animate={prefersReducedMotion ? undefined : { scaleY: 1 }}
+                    transition={{
+                        duration:prefersReducedMotion ? 0 : 2, 
+                        ease: 'circOut'
+                    }}
+                    style={{
+                        originY: 0,
+                        height: '110vh',
+                        width: '100%',
+                        background: line.gradient,
+                    }}
+                />
+            </div>
+    )})
 }
 
 export default VericalLines
