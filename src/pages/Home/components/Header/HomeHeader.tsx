@@ -24,8 +24,7 @@ const HomeHeader = () => {
                 inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)]"
         >
             <SnowParticles />
-            <div className='flex justify-between container max-lg:max-w-[95%] max-xl:max-w-[90%] xl:max-w-screen-7xl 2xl:max-w-screen-2xl mx-auto w-full'>
-
+            <div className="flex justify-between container max-lg:max-w-[95%] max-xl:max-w-[90%] xl:max-w-screen-7xl 2xl:max-w-screen-2xl mx-auto w-full">
                 <div className="relative flex items-center gap-2 z-10">
                     <img src={logo} alt="Logo" className="h-8" />
                     <span className="text-(--white-cl) -ml-1.5 font-bold">Profile</span>
@@ -60,7 +59,7 @@ const HomeHeader = () => {
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                <div className='flex items-center *:ml-3'>
+                <div className="items-center *:ml-3 md:hidden max-md:flex">
                     <LanguageSwitcher />
                     <MobileMenu />
                 </div>

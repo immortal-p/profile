@@ -32,13 +32,16 @@ const HomePage = () => {
         <main className="w-full relative">
             <HomeHeader />
 
-            <section className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12" id="home">
-                <SideElement side="right" top="86%" right="3%">
+            <section
+                className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12"
+                id="home"
+            >
+                <SideElement side="right" top="86%" right="3%" hideBelow="sm">
                     <img src={squareMin} alt="square" className="h-22" />
                 </SideElement>
 
                 <Glow right="28%" top="0" />
-                <Glow left="10%" bottom="5%" />
+                <Glow left="10%" bottom="5%" hideBelow="lg" />
 
                 <div className="container mx-auto relative z-10 px-0 xl:p-4 max-lg:max-w-[95%] max-md:px-4">
                     <div className="flex flex-wrap justify-between w-full">
@@ -55,7 +58,7 @@ const HomePage = () => {
                                         <strong>front-end developer</strong>
                                     </Trans>
                                 </ItemTitle>
-                                <ItemDescription className="mt-6 text-[16px] max-w-140 max-md:max-w-[80%] text-(--text-cl) max-md:text-[15px] max-sm:text-[14px] max-[840px]:mt-2">
+                                <ItemDescription className="mt-6 text-[16px] max-w-140 max-md:max-w-[80%] max-sm:max-w-full text-(--text-cl) max-sm:text-[15px] max-[840px]:mt-2">
                                     {t('hero.description')}
                                 </ItemDescription>
                                 <ItemActions className="mt-6 max-[840px]:mt-2 max-md:hidden">
@@ -75,7 +78,11 @@ const HomePage = () => {
                             className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-6"
                         >
                             <Item className="flex justify-start p-0 w-[78%] max-lg:w-full">
-                                <img src={startImg} alt="" className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1]" />
+                                <img
+                                    src={startImg}
+                                    alt=""
+                                    className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1] max-sm:w-[80%]"
+                                />
                                 <img
                                     src={geomFrom}
                                     alt=""
@@ -83,8 +90,8 @@ const HomePage = () => {
                                 />
                                 <LiquidGlassCard
                                     className="
-                                        max-w-full w-[89%] max-xl:w-full max-md:w-[80%] right-[-1em] max-md:right-0 mt-[-1em]
-                                        flex items-center font-medium text-[16px] border border-(--text-cl) *:border-(--text-cl) p-3
+                                        max-w-full w-[89%] max-xl:w-full max-md:w-[80%] max-sm:w-[90%] right-[-1em] max-md:right-0 mt-[-1em]
+                                        flex items-center font-medium text-[16px] max-sm:text-[15px] border border-(--text-cl) *:border-(--text-cl) p-3
                                         before:w-4 before:h-4 before:bg-(--icon-cl) before:block before:mr-2.5"
                                 >
                                     <Trans i18nKey={'hero.status'}>
@@ -130,32 +137,39 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className="relative w-full mt-32" id="works">
-                <SideElement side="left" top="20%" left="2.3%">
-                    <img src={matrix} alt="square" className="h-16" />
+            <section
+                className="relative w-full mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12"
+                id="works"
+            >
+                <SideElement side="left" top="20%" left="3.3%">
+                    <img
+                        src={matrix}
+                        alt="square"
+                        className="h-16 max-xl:ml-2 max-lg:ml-4 max-lg:mt-10 max-lg:h-22"
+                    />
                 </SideElement>
 
                 <SideElement side="right" top="50%" right="0">
-                    <img src={square} alt="" className="w-34" />
+                    <img src={square} alt="" className="w-34 max-md:mt-30" />
                 </SideElement>
 
                 <Glow right="22%" top="20%" size="560px" />
 
-                <div className="container mx-auto px-4 relative z-10">
+                <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-sm:p-0">
                     <div className="flex flex-cl justify-center min-w-full relative min-h-screen">
                         <Item className="block min-w-full">
                             <ItemContent className="w-full flex flex-row justify-between items-center">
-                                <ItemTitle className="text-[32px] text-(--icon-cl) [&>strong]:text-(--white-cl) max-w-[70%] w-full h-11">
+                                <ItemTitle className="text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] text-(--icon-cl) [&>strong]:text-(--white-cl) max-w-[70%] max-sm:max-w-[50%] w-full h-11">
                                     <Trans i18nKey={'projects.title'}>
                                         #<strong>projects</strong>
                                     </Trans>
                                     <ScrollLine width="90%" />
                                 </ItemTitle>
 
-                                <p className="flex items-center max-w-[10%] w-auto border-none">
+                                <p className="flex items-center max-w-[30%] max-sm:max-w-[45%] w-auto border-none">
                                     <Link
                                         to="*"
-                                        className="text-[16px] text-(--white-cl) font-medium"
+                                        className="text-[16px] sm:text-[15px] text-(--white-cl) font-medium"
                                     >
                                         {t('projects.viewAll')}
                                     </Link>

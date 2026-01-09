@@ -69,7 +69,7 @@ const InfoProjects = () => {
     const projects = useProjectsData()
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+        <div className="mt-12 grid gap-3 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-md:gap-5">
             {projects.map((project, index) => (
                 <motion.div
                     key={project.id}
@@ -104,18 +104,18 @@ const InfoProjects = () => {
                             ))}
                         </div>
 
-                        <CardContent className="p-4 space-y-4">
-                            <CardTitle className="text-2xl font-medium text-(--white-cl)">
+                        <CardContent className="p-4 space-y-4 max-sm:px-3 max-sm:py-2">
+                            <CardTitle className="text-2xl max-md:text-xl font-medium text-(--white-cl)">
                                 {project.title}
                             </CardTitle>
-                            <CardDescription className="text-(--text-cl) text-[16px]">
+                            <CardDescription className="text-(--text-cl) text-[16px] max-sm:text-[15px]">
                                 {project.description}
                             </CardDescription>
                             {project.live && (
                                 <Button className="border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0">
                                     <Link
                                         to={project.liveUrl !== undefined ? project.liveUrl : ''}
-                                        className="py-2 px-4"
+                                        className="py-2 px-4 max-sm:px-3"
                                     >
                                         {project.live}
                                     </Link>
