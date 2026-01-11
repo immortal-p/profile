@@ -19,10 +19,18 @@ export function useNavigation() {
     const [activeSection, setActiveSection] = useState<SectionId | null>(null)
 
     const scrollToSection = useCallback((id: SectionId) => {
-        document.getElementById(id)?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        })
+        const element = document.getElementById(id)
+
+        if (element) {
+            const HEADER_HEIGHT = 40;
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - HEADER_HEIGHT
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
     }, [])
 
     const HEADER_HEIGHT = 40
