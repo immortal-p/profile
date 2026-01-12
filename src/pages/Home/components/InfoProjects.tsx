@@ -64,12 +64,12 @@ const useProjectsData = () => {
 
     return PROJECTS
 }
-
 const InfoProjects = () => {
     const projects = useProjectsData()
-
+    
     return (
         <div className="mt-12 grid gap-3 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-md:gap-5">
+
             {projects.map((project, index) => (
                 <motion.div
                     key={project.id}
@@ -87,7 +87,7 @@ const InfoProjects = () => {
                             <img
                                 src={project.imageUrl}
                                 alt={project.imageAlt}
-                                loading="lazy"
+                                loading="eager"
                                 decoding="async"
                                 className="w-full h-full object-cover rounded-tr-md rounded-tl-md"
                             />
