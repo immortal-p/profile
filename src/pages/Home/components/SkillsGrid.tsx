@@ -48,9 +48,9 @@ const SkillsGrid = () => {
     const col3 = SKILLS_DATA.filter((_, i) => i > 2)
 
     return (
-        <div className="flex flex-row gap-4 items-start">
+        <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 max-md:gap-0 items-stretch">
             {[col1, col2, col3].map((column, colIndex) => (
-                <div key={colIndex} className="flex flex-col flex-1">
+                <div key={colIndex} className={`flex flex-col max-xl:*:h-full ${colIndex === 2 && 'max-xl:col-span-2 max-md:col-span-1 max-lg:-mt-4 max-md:mt-0'}`}>
                     {column.map((skillData, index) => (
                         <motion.div
                             key={skillData?.id}
@@ -62,13 +62,13 @@ const SkillsGrid = () => {
                                 delay: index * 0.2,
                             }}
                             viewport={{ once: true, margin: '-50px' }}
-                            className="break-inside-avoid mb-4 w-full h-auto inline-block align-top"
+                            className="break-inside-avoid mb-4"
                         >
-                            <LiquidGlassCard className="p-0 rounded-sm w-full *:rounded-sm border-none *:shadow-0 z-20">
+                            <LiquidGlassCard className="p-0 rounded-sm w-full *:rounded-sm border-none *:shadow-0 z-20 max-xl:h-full max-lg:py-2">
                                 <CardHeader className="p-2 border-b border-(--text-cl) text-[16px] text-(--white-cl)">
                                     <p className="font-bold">{skillData.title}</p>
                                 </CardHeader>
-                                <CardContent className="p-2 text-[16px] text-(--text-cl)">
+                                <CardContent className="p-2 text-[16px] text-(--text-cl) max-lg:pt-4">
                                     {skillData.skills.map((skill, index) => (
                                         <span
                                             key={index}

@@ -29,21 +29,21 @@ const HomePage = () => {
     const Contacts = lazy(() => import('./components/Contacts'))
 
     return (
-        <main className="w-full relative">
+        <main className="w-full relative max-sm:[&>section]:min-h-svh">
             <HomeHeader />
 
             <section
-                className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12"
+                className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 max-sm:flex max-sm:items-center"
                 id="home"
             >
                 <SideElement side="right" top="86%" right="3%" hideBelow="sm">
-                    <img src={squareMin} alt="square" className="h-22" />
+                    <img src={squareMin} alt="square" className="h-22 max-md:mr-8 max-md:h-25 max-md:-mt-12" />
                 </SideElement>
 
                 <Glow right="28%" top="0" />
                 <Glow left="10%" bottom="5%" hideBelow="lg" />
 
-                <div className="container mx-auto relative z-10 px-0 xl:p-4 max-lg:max-w-[95%] max-md:px-4">
+                <div className="container mx-auto relative z-10 px-0 xl:p-4 max-lg:max-w-[95%] max-md:px-4 [@media(max-width:420px)]:px-0">
                     <div className="flex flex-wrap justify-between w-full">
                         <motion.div
                             initial={{ opacity: 0, x: -100 }}
@@ -51,8 +51,12 @@ const HomePage = () => {
                             transition={{ duration: 2, ease: 'easeOut' }}
                             className="max-w-[45%] z-20 ml-6 max-lg:max-w-1/2 max-md:max-w-full max-md:ml-0"
                         >
-                            <ItemContent className="mt-22">
-                                <ItemTitle className="inline font-bold text-[34px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] max-w-130 max-md:w-full text-(--white-cl) [&>strong]:text-(--icon-cl) max-lg:leading-tight max-md:leading-normal">
+                            <ItemContent className="mt-22 max-sm:mt-2 [@media(max-width:380px)]:mt-12">
+                                <ItemTitle className="
+                                    inline font-bold text-[34px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px]
+                                    max-w-130 max-md:w-full text-(--white-cl) [&>strong]:text-(--icon-cl)
+                                    max-lg:leading-tight max-md:leading-normal"
+                                >
                                     <Trans i18nKey={'hero.title'}>
                                         Bargest is a <strong>web designer</strong> and{' '}
                                         <strong>front-end developer</strong>
@@ -75,13 +79,13 @@ const HomePage = () => {
                             initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 2, ease: 'easeOut' }}
-                            className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-6"
+                            className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
                         >
                             <Item className="flex justify-start p-0 w-[78%] max-lg:w-full">
                                 <img
                                     src={startImg}
                                     alt=""
-                                    className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1] max-sm:w-[80%]"
+                                    className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1] max-sm:w-[80%] [@media(max-width:420px)]:w-[90%]"
                                 />
                                 <img
                                     src={geomFrom}
@@ -105,7 +109,7 @@ const HomePage = () => {
                             initial={{ opacity: 0, y: -100 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.5, ease: 'easeOut' }}
-                            className="mt-28 flex flex-col items-center w-full max-md:hidden"
+                            className="mt-28 flex flex-col items-center w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
                         >
                             <div className="flex flex-col items-end max-w-max">
                                 <LiquidGlassCard className="p-6 z-10 border-(--text-cl) rounded-br-none *:rounded-br-none overflow-visible max-lg:p-4">
@@ -113,21 +117,25 @@ const HomePage = () => {
                                         src={quotesLeft}
                                         sizes="26"
                                         alt="quotes left"
-                                        className="absolute left-[-0.8em] top-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80 max-lg:top-[-2em]"
+                                        className="
+                                            absolute left-[-0.8em] top-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl)
+                                            text-(--white-cl)/70 group-hover:text-white/80 max-lg:top-[-2em] max-sm:hidden"
                                     />
-                                    <ItemContent className="*:text-[22px] *:text-(--white-cl) *:m-auto max-lg:*:text-[20px]">
+                                    <ItemContent className="*:text-[22px] *:text-(--white-cl) *:m-auto max-lg:*:text-[20px] max-md:*:text-[18px] max-sm:*:text-[16px]">
                                         <ItemTitle>{t('hero.quote')}</ItemTitle>
                                     </ItemContent>
                                     <img
                                         src={quotesRight}
                                         sizes="26"
                                         alt="quotes right"
-                                        className="absolute right-[-0.8em] bottom-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl) text-(--white-cl)/70 group-hover:text-white/80 max-lg:bottom-[-2em]"
+                                        className="
+                                            absolute right-[-0.8em] bottom-[-2.3em] ease-in transition duration-200 group-hover:fill-(--white-cl)
+                                            text-(--white-cl)/70 group-hover:text-white/80 max-lg:bottom-[-2em] max-sm:hidden"
                                     />
                                 </LiquidGlassCard>
 
                                 <LiquidGlassCard className="p-2 cursor-pointer border-(--text-cl) rounded-tl-none rounded-tr-none border-t-0 *:rounded-tl-none *:rounded-tr-none">
-                                    <ItemContent className="*:text-[20px] *:text-(--white-cl) px-4 max-lg:*:text-[18px]">
+                                    <ItemContent className="*:text-[20px] *:text-(--white-cl) px-4 max-lg:*:text-[18px] max-md:*:text-[16px] max-sm:*:text-[15px]">
                                         <ItemTitle>{t('hero.author')}</ItemTitle>
                                     </ItemContent>
                                 </LiquidGlassCard>
@@ -138,7 +146,7 @@ const HomePage = () => {
             </section>
 
             <section
-                className="relative w-full mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12"
+                className="relative w-full mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 max-xl:min-h-125"
                 id="works"
             >
                 <SideElement side="left" top="20%" left="3.3%">
@@ -156,7 +164,7 @@ const HomePage = () => {
                 <Glow right="22%" top="20%" size="560px" />
 
                 <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-sm:p-0">
-                    <div className="flex flex-cl justify-center min-w-full relative min-h-screen">
+                    <div className="flex flex-cl justify-center min-w-full relative">
                         <Item className="block min-w-full">
                             <ItemContent className="w-full flex flex-row justify-between items-center">
                                 <ItemTitle className="text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] text-(--icon-cl) [&>strong]:text-(--white-cl) max-w-[70%] max-sm:max-w-[50%] w-full h-11">
@@ -185,75 +193,98 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className="container mx-auto px-4 py-20 z-10" id="skills">
+            <section
+                className="container mx-auto px-4 py-20 z-10 mt-26 max-lg:max-w-[95%] max-lg:mt-4 max-lg:py-14 max-md:mt-2 max-md:py-6 max-sm:px-0"
+                id="skills"
+            >
                 <Item className="block min-w-full">
                     <ItemTitle
                         className="
-                                text-[32px] text-(--icon-cl) [&>strong]:text-(--white-cl)
-                                [&>h1]:whitespace-nowrap w-full max-w-[70%] h-11"
+                            text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] text-(--icon-cl) [&>strong]:text-(--white-cl)
+                            [&>h1]:whitespace-nowrap w-full max-w-[70%] h-11"
                     >
                         <Trans i18nKey={'skills.title'}>
                             #<strong>skills</strong>
                         </Trans>
+
                         <ScrollLine width="45%" />
                     </ItemTitle>
 
-                    <ItemContent className="mt-11 flex flex-row justify-between min-w-full w-full">
+                    <ItemContent className="mt-11 flex flex-row justify-between min-w-full w-full [@media(max-width:925px)]:flex-col">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1.5, ease: 'easeOut' }}
                             viewport={{ once: true, margin: '50px' }}
-                            className="w-full max-w-[40%]"
+                            className="w-full max-w-[40%] max-xl:max-w-[48%] [@media(max-width:925px)]:max-w-full"
                         >
                             <Terminal
                                 className="
-                                        border-0 bg-(--background)/40 backdrop-blur-md *:border-0
-                                        shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_0px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_12px_0px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"
+                                    border-0 bg-(--background)/40 backdrop-blur-md *:border-0
+                                    shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_0px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_12px_0px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]
+                                    max-xl:min-h-[80%] [@media(max-width:925px)]:max-w-full"
                             >
                                 <TypingAnimation className="text-(--white-cl)">
                                     &gt; system_check --list-skills
                                 </TypingAnimation>
+
                                 <AnimatedSpan className="text-green-600">
-                                    [scanning] Languages... [TypeScript, JavaScript, HTML/CSS]
+                                    [scanning] Languages... [TypeScript, JavaScript]
                                 </AnimatedSpan>
+
                                 <AnimatedSpan className="text-green-600">
                                     [scanning] Frameworks... [React, Vite]
                                 </AnimatedSpan>
+
                                 <AnimatedSpan className="text-green-600">
                                     [scanning] Styles... [Tailwind, SASS, Shadcn/UI]
                                 </AnimatedSpan>
+
+                                <AnimatedSpan className="text-green-600">
+                                    [scanning] Other... [HTML, Pug, REST, Jest]
+                                </AnimatedSpan>
+
                                 <AnimatedSpan className="text-green-600">
                                     [scanning] Tools... [Git, Linux, Figma, Fedora]
                                 </AnimatedSpan>
+
+                                <AnimatedSpan className="text-green-600">
+                                    [scanning] UI... [Shadcn, Mantine, MagicUI]
+                                </AnimatedSpan>
+
                                 <AnimatedSpan className="text-green-600">
                                     [status] All systems operational.
                                 </AnimatedSpan>
+
                                 <AnimatedSpan className="text-red-700">
                                     [warning] {t('skills.warning')}
                                 </AnimatedSpan>
+
                                 <AnimatedSpan className="text-red-700">
                                     [critical] {t('skills.critical')}
                                 </AnimatedSpan>
+
                                 <TypingAnimation
                                     delay={500}
                                     className="text-muted-foreground text-(--white-cl)"
                                 >
                                     &gt; execute: make_coffee --double-espresso
                                 </TypingAnimation>
+
                                 <TypingAnimation
                                     delay={1500}
                                     className="text-muted-foreground text-(--white-cl)"
                                 >
                                     [process] Brewing... ████████░░ 80%
                                 </TypingAnimation>
+
                                 <TypingAnimation delay={2500} className="text-(--white-cl)">
                                     &gt; status: online and motivated
                                 </TypingAnimation>
                             </Terminal>
                         </motion.div>
 
-                        <div className="max-w-[58%]">
+                        <div className="max-w-[58%] max-xl:max-w-[50%] [@media(max-width:925px)]:max-w-full [@media(max-width:925px)]:mt-4">
                             <Suspense fallback={null}>
                                 <SkillsGrid />
                             </Suspense>
@@ -262,7 +293,7 @@ const HomePage = () => {
                 </Item>
             </section>
 
-            <section className="relative w-full" id="about">
+            <section className="relative w-full mt-20" id="about">
                 <Glow top="15%" left="4%" size="650px" />
 
                 <SideElement top="36%" left="-2%" side="left">
