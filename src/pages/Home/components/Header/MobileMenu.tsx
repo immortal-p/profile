@@ -38,7 +38,7 @@ export function MobileMenu() {
           [&>button>svg]:w-8
           [&>button>svg]:h-8
           [&>button>svg]:text-(--text-cl)
-          w-screen h-screen
+          min-h-svh
           max-w-none
           border-none
           rounded-none

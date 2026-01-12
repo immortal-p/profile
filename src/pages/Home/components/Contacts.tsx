@@ -23,25 +23,33 @@ const Contacts = () => {
             }}
             onAnimationComplete={() => setIsVisible(true)}
             viewport={{ once: true }}
-            className="min-w-[50%]"
+            className="ralative w-full flex justify-end items-center -mt-20 max-sm:mt-0"
         >
-            <LiquidGlassCard className="p-0 rounded-sm *:rounded-sm border-none *:shadow-0 z-20 w-auto relative overflow-visible *:hover:bg-none">
+            <LiquidGlassCard className="relative max-w-[60%] max-xl:max-w-[80%] [@media(max-width:925px)]:min-w-[94%] max-md:max-w-full w-full p-0  border-none overflow-visible *:hover:bg-none">
                 <motion.img
                     src={santaHat}
                     alt="Santa Hat"
-                    className="absolute w-50 top-[-20%] z-30"
-                    initial={{ y: -100, x: 235, opacity: 0, rotate: 15 }}
-                    whileInView={{ y: 0, x: 235, opacity: 1, rotate: 0 }}
+                    className="
+                        absolute z-30 pointer-events-none
+                        -right-14 top-[-18%] [@media(max-width:925px)]:mt-2 [@media(max-width:925px)]:mr-3
+                        w-40 max-lg:w-32
+                    "
+                    initial={{ y: -60, opacity: 0, rotate: 15 }}
+                    whileInView={{ y: 0, opacity: 1, rotate: 0 }}
                     transition={{
                         type: 'spring',
-                        stiffness: 100,
-                        damping: 10,
-                        delay: 1,
+                        stiffness: 120,
+                        damping: 12,
+                        delay: 0.8,
                     }}
                     viewport={{ once: true }}
-                ></motion.img>
-                <CardContent className="p-4 [&>p]:text-[16px] group *:my-4 w-full">
-                    <p className="font-bold text-(--white-cl)">{t('contacts.messages')}</p>
+                />
+                
+                <CardContent className="p-4 group *:my-4 w-full">
+                    <p className="font-bold text-(--white-cl)">
+                        {t('contacts.messages')}
+                    </p>
+
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
                         <img src={discord} className="h-5.5" />
                         <GlassCopyTooltip text="solid22p">
@@ -52,6 +60,7 @@ const Contacts = () => {
                             )}
                         </GlassCopyTooltip>
                     </div>
+
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
                         <img src={mail} className="h-5" />
                         <GlassCopyTooltip text="immortalkil4oy@gmail.com">
@@ -65,6 +74,7 @@ const Contacts = () => {
                             )}
                         </GlassCopyTooltip>
                     </div>
+                    
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
                         <img src={telegram} className="h-7" />
                         <GlassCopyTooltip text="@Spru71k">

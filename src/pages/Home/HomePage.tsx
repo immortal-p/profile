@@ -81,7 +81,7 @@ const HomePage = () => {
                             transition={{ duration: 2, ease: 'easeOut' }}
                             className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
                         >
-                            <Item className="flex justify-start p-0 w-[78%] max-lg:w-full">
+                            <Item className="flex justify-start p-0 w-[78%] max-lg:w-full max-sm:min-h-70.5">
                                 <img
                                     src={startImg}
                                     alt=""
@@ -106,7 +106,7 @@ const HomePage = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: -100 }}
+                            initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.5, ease: 'easeOut' }}
                             className="mt-28 flex flex-col items-center w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
@@ -210,7 +210,7 @@ const HomePage = () => {
                         <ScrollLine width="45%" />
                     </ItemTitle>
 
-                    <ItemContent className="mt-11 flex flex-row justify-between min-w-full w-full [@media(max-width:925px)]:flex-col">
+                    <ItemContent className="mt-12 flex flex-row justify-between min-w-full w-full [@media(max-width:925px)]:flex-col">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -293,59 +293,62 @@ const HomePage = () => {
                 </Item>
             </section>
 
-            <section className="relative w-full mt-20" id="about">
+            <section className="relative w-full mt-20 max-md:flex max-md:items-center max-sm:mt-12 max-sm:min-h-[60svh]!" id="about">
                 <Glow top="15%" left="4%" size="650px" />
 
-                <SideElement top="36%" left="-2%" side="left">
-                    <img src={square} alt="" className="w-40" />
+                <SideElement top="40%" left="-1%" side="left" hideBelow='xl'>
+                    <img src={square} alt="" className="w-30 ml-2" />
                 </SideElement>
 
-                <img src={matrix} alt="" className="w-20 absolute top-[50%] right-0" />
+                <img src={matrix} alt="" className="w-20 absolute top-[50%] right-0 max-sm:hidden" />
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="flex flex-wrap justify-between w-full py-20">
+                <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-lg:px-0">
+                    <div className="flex flex-wrap justify-between w-full py-20 max-lg:py-14 max-md:py-6">
                         <Item className="block min-w-full">
                             <ItemTitle
                                 className="
-                                    text-[32px] [&>strong]:text-(--white-cl) text-(--icon-cl)
-                                    *:whitespace-nowrap w-full min-w-full h-11"
+                                    text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px]
+                                    [&>strong]:text-(--white-cl) text-(--icon-cl) *:whitespace-nowrap w-full min-w-full h-11"
                             >
                                 <Trans i18nKey={'about.title'}>
                                     #<strong>aboute-me</strong>
                                 </Trans>
                                 <ScrollLine width="50%" />
                             </ItemTitle>
-                            <ItemContent className="flex flex-row justify-between w-full items-center min-h-[50vh]">
+                            <ItemContent className="mt-12 [@media(max-width:925px)]:mt-0 max-md:pt-12 flex flex-row justify-between w-full items-center min-h-[50vh] z-20 relative">
                                 <motion.div
                                     initial={{ opacity: 0, x: -100 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 2, ease: 'easeOut' }}
                                     viewport={{ once: true }}
-                                    className="max-w-[40%] [&>p]:text-(--text-cl) [&>p]:text-[18px] [&>p]:leading-7 [&>h4]:text-xl [&>h4]:text-(--white-cl)"
+                                    className="
+                                        max-w-[40%] max-xl:max-w-1/2 [@media(max-width:925px)]:min-w-[80%] max-md:max-w-[90%] [@media(max-width:420px)]:max-w-full
+                                        [&>p]:text-(--text-cl) [&>p]:text-[18px] [&>p]:leading-7
+                                        [&>h4]:text-xl [&>h4]:text-(--white-cl)"
                                 >
                                     <h4>{t('about.greeting')}</h4>
-                                    <p className="mt-8">{t('about.paragraphs.first')}</p>
-                                    <p className="mt-8">{t('about.paragraphs.second')}</p>
+                                    <p className="mt-8 max-xl:mt-4">{t('about.paragraphs.first')}</p>
+                                    <p className="mt-8 max-xl:mt-4">{t('about.paragraphs.second')}</p>
                                     <Link to="*" className="inline-block">
-                                        <LiquidButton className="mt-9 cursor-pointer *:rounded-sm *:flex *:items-center *:text-(--white-cl)">
+                                        <LiquidButton className="mt-9 max-lg:mt-4 cursor-pointer *:rounded-sm *:flex *:items-center *:text-(--white-cl)">
                                             <p>{t('about.button')}</p>
                                             <img src={arrowLongRight} className="ml-1 h-2" alt="" />
                                         </LiquidButton>
                                     </Link>
                                 </motion.div>
 
-                                <div className="flex flex-col justify-center items-center relative w-1/2 shrink-0">
-                                    <img src={imgAboutMe} alt="" className="w-[80%]" />
-                                    <hr className="w-[50%] text-(--icon-cl) absolute right-24 bottom-0" />
+                                <div className="flex flex-col justify-center items-center relative w-1/2 shrink-0 [@media(max-width:925px)]:hidden">
+                                    <img src={imgAboutMe} alt="" className="w-[80%] max-2xl:w-full max-xl:scale-120 max-xl:-mt-10" />
+                                    <hr className="w-[50%] text-(--icon-cl) absolute right-24 bottom-0 max-xl:-bottom-10 max-xl:w-[70%] max-xl:right-0" />
                                     <img
                                         src={matrix}
                                         alt=""
-                                        className="absolute w-20 top-9 left-40"
+                                        className="absolute w-20 top-9 left-40 max-xl:hidden"
                                     />
                                     <img
                                         src={matrixLong}
                                         alt=""
-                                        className="absolute top-[55%] right-28"
+                                        className="absolute top-[55%] right-28 max-xl:right-8"
                                     />
                                 </div>
                             </ItemContent>
@@ -354,20 +357,20 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className="mt-32 relative w-full" id="contacts">
-                <SideElement left="1%" top="40%" side="left">
+            <section className="mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 relative w-full max-sm:min-h-[60svh]!" id="contacts">
+                <SideElement left="1%" top="60%" side="left">
                     <img src={matrix} alt="" className="w-23" />
                 </SideElement>
 
                 <Glow bottom="-25%" right="-7%" size="600px" />
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="flex flex-wrap justify-between w-full py-25">
-                        <Item className="block min-w-full">
+                <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%]">
+                    <div className="flex flex-wrap justify-between w-full py-25 max-lg:py-14 max-md:py-6">
+                        <Item className="block min-w-full max-sm:px-0">
                             <ItemTitle
                                 className="
-                                        text-[32px] [&>strong]:text-(--white-cl) text-(--icon-cl)
-                                        w-full min-w-full h-11
+                                        text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px]
+                                        [&>strong]:text-(--white-cl) text-(--icon-cl) w-full min-w-full h-11
                                     "
                             >
                                 <Trans i18nKey={'contacts.title'}>
@@ -375,7 +378,7 @@ const HomePage = () => {
                                 </Trans>
                                 <ScrollLine width="40%" />
                             </ItemTitle>
-                            <ItemContent className="flex flex-row justify-between w-full min-h-[40vh]">
+                            <ItemContent className="flex flex-row justify-between w-full min-h-[40vh] max-md:flex-col">
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -384,11 +387,13 @@ const HomePage = () => {
                                         ease: 'easeOut',
                                     }}
                                     viewport={{ once: true, margin: '-100px' }}
-                                    className="max-w-[40%] [&>p]:text-(--text-cl) [&>p]:text-[18px] [&>p]:leading-7 [&>h4]:text-xl [&>h4]:text-(--white-cl) *:mt-14"
+                                    className="
+                                        max-w-[40%] max-xl:max-w-1/2 max-md:max-w-full [&>p]:text-(--text-cl) [&>p]:text-[18px]
+                                        [&>p]:leading-7 [&>h4]:text-xl [&>h4]:text-(--white-cl) *:mt-14"
                                 >
                                     <p className="whitespace-pre-line">{t('contacts.text')}</p>
                                 </motion.div>
-                                <div className="max-w-[50%] w-full flex items-center justify-end mr-20">
+                                <div className="max-w-[50%] max-md:max-w-full w-full flex items-center justify-end mr-20 max-xl:mr-0 max-md:min-h-50 max-sm:mt-12">
                                     <Suspense fallback={null}>
                                         <Contacts />
                                     </Suspense>
