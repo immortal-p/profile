@@ -30,7 +30,7 @@ const HomeHeader = () => {
                     <span className="text-(--white-cl) -ml-1.5 font-bold">Profile</span>
                 </div>
 
-                <NavigationMenu className="relative z-10 max-w-[44%] max-xl:max-w-[64%] max-[800px]:max-w-[80%] w-full [&>div]:w-full max-md:hidden">
+                <NavigationMenu className="relative z-10 max-w-[44%] max-xl:max-w-[64%] [@media(max-width:925px)]:max-w-[75%] w-full [&>div]:w-full max-md:hidden">
                     <NavigationMenuList className="flex w-full justify-between">
                         {SECTIONS.map(({ id, labelKey }) => {
                             const isActive = activeSection === id

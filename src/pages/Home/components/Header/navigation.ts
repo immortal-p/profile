@@ -22,13 +22,13 @@ export function useNavigation() {
         const element = document.getElementById(id)
 
         if (element) {
-            const HEADER_HEIGHT = 40;
+            const HEADER_HEIGHT = 40
             const elementPosition = element.getBoundingClientRect().top
             const offsetPosition = elementPosition + window.pageYOffset - HEADER_HEIGHT
-            
+
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: 'smooth',
             })
         }
     }, [])
