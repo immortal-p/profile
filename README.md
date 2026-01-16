@@ -1,34 +1,36 @@
 <div align="center">
 
-# Profile
+# 👻 immortal-p/profile
 
-A high-performance personal portfolio built with Vite, React, and Tailwind CSS. <br>
+A high-performance personal portfolio built with **Vite**, **React**, and **Tailwind CSS**.  
 Focused on speed, clean typography, and subtle motion.
 
+Live demo: https://profile-kappa-ten.vercel.app
+
 </div>
+
+## ✨ Features
+
+- Built with **Vite** for near-instant HMR and ultra-fast performance
+- **React 18** component-based architecture
+- Responsive layouts with **Tailwind CSS**
+- Smooth declarative animations using **Framer Motion**
+- Clean, minimal UI focused on content
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+| --- | --- |
+| Bundler | Vite |
+| Framework | React 18 |
+| Styling | Tailwind CSS |
+| Motion | Framer Motion |
+| Type System | TypeScript |
+| Deployment | Vercel |
+
 <br>
-
-## Overview
-
-This is a lightweight, single-page portfolio designed with a "less is more" philosophy. It showcases my technical stack, projects, and contact information through a streamlined interface.
-
-- Fast by default: Powered by Vite for near-instant HMR.
-
-- Minimal UI: Dark-themed, content-focused design using Tailwind CSS.
-
-- Smooth Motion: Declarative animations with Framer Motion.
-
----
-
-## Tech Stack
-
-- Bundler Vite
-- Library React 18
-- Styling Tailwind CSS
-- Motion Framer Motion
-- Icons Local Icons
-
----
 
 ## Getting Started
 
@@ -67,14 +69,24 @@ src/
 ├─ components/   # Modular UI elements (Header, Projects)
 │   ├─ kokonutui # Liquid-glass-card
 │   ├─ layout    # LanguageSwitcher
-│   └─ ui        # Shadcn components and custom components in the decor folder
-│
+│   └─ ui/
+│      ├─ decor/ # Custom components (Glow, IconsInfo, ScrollLine, SideElement...)
+│      ├─ navigation-menu
+│      ├─ sheet
+│      ├─ terminal
+│      └─ typing-animation
 ├─ lib/
 │   └─ utils
 │
-└─ pages/   # Configuration (Project data, Social links)
-    ├─ 404/ NotFoundPages
-    └─ Home/
-        ├─ components # Header, Contacts, GlassCopyTooltip, InfoProjects, SkillsGrid
-        └─ HomePage
+├─ pages/   # Configuration (project data, Social links)
+│   ├─ 404/ NotFoundPages
+│   └─ Home/
+│       ├─ components # Header, Contacts, GlassCopyTooltip, InfoProjects, SkillsGrid ...
+│       └─ HomePage
+└─ shared/
+   ├─ config/
+   │  └─ breakpoints
+   └─ hooks/
+      ├─ useMediaQuery
+      └─ useResponsiveVisibility
 ```
