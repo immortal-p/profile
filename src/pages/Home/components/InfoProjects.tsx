@@ -4,7 +4,6 @@ import infostormImg from '@/assets/images/infostormImgN.svg'
 import nekoDash from '@/assets/images/weatherDashboardImg.webp'
 import nekoChat from '@/assets/images/nekoChatImg.webp'
 import { CardContent, CardTitle, CardDescription } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { LiquidGlassCard } from '@/components/kokonutui/liquid-glass-card'
 import { useTranslation } from 'react-i18next'
@@ -111,19 +110,17 @@ const InfoProjects = () => {
                                 {project.description}
                             </CardDescription>
                             {project.live && (
-                                <Button className="border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0">
-                                    <Link
-                                        to={project.liveUrl !== undefined ? project.liveUrl : ''}
-                                        target='_blank'
-                                        className="py-2 px-4 max-sm:px-3"
-                                    >
-                                        {project.live}
-                                    </Link>
-                                </Button>
+                                <Link
+                                    to={project.liveUrl !== undefined ? project.liveUrl : ''}
+                                    target="_blank"
+                                    className="py-2 px-6 max-sm:px-3 border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0"
+                                >
+                                    {project.live}
+                                </Link>
                             )}
                             <Link
                                 to={project.projectUrl}
-                                target='_blank'
+                                target="_blank"
                                 className="inline-flex items-center gap-2
                                          border rounded-sm border-(--text-cl)
                                          text-(--white-cl) px-4 py-2"
