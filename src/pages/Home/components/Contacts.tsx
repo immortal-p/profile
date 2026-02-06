@@ -44,11 +44,9 @@ const Contacts = () => {
                     }}
                     viewport={{ once: true }}
                 />
-                
+
                 <CardContent className="p-4 group *:my-4 w-full">
-                    <p className="font-bold text-(--white-cl)">
-                        {t('contacts.messages')}
-                    </p>
+                    <p className="font-bold text-(--white-cl)">{t('contacts.messages')}</p>
 
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
                         <img src={discord} className="h-5.5" />
@@ -74,7 +72,7 @@ const Contacts = () => {
                             )}
                         </GlassCopyTooltip>
                     </div>
-                    
+
                     <div className="flex items-center [&>strong]:text-(--text-cl) [&>strong]:ml-2 *:transition *:duration-300 *:ease-in *:text-(--text-cl) *:group-hover:text-(--white-cl)">
                         <img src={telegram} className="h-7" />
                         <GlassCopyTooltip text="@Spru71k">

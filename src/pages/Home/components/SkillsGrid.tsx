@@ -50,7 +50,10 @@ const SkillsGrid = () => {
     return (
         <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-4 max-md:gap-0 items-stretch">
             {[col1, col2, col3].map((column, colIndex) => (
-                <div key={colIndex} className={`flex flex-col max-xl:*:h-full ${colIndex === 2 && 'max-xl:col-span-2 max-md:col-span-1 max-lg:-mt-4 max-md:mt-0'}`}>
+                <div
+                    key={colIndex}
+                    className={`flex flex-col max-xl:*:h-full ${colIndex === 2 && 'max-xl:col-span-2 max-md:col-span-1 max-lg:-mt-4 max-md:mt-0'}`}
+                >
                     {column.map((skillData, index) => (
                         <motion.div
                             key={skillData?.id}

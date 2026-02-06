@@ -37,7 +37,11 @@ const HomePage = () => {
                 id="home"
             >
                 <SideElement side="right" top="86%" right="3%" hideBelow="sm">
-                    <img src={squareMin} alt="square" className="h-22 max-md:mr-8 max-md:h-25 max-md:-mt-12" />
+                    <img
+                        src={squareMin}
+                        alt="square"
+                        className="h-22 max-md:mr-8 max-md:h-25 max-md:-mt-12"
+                    />
                 </SideElement>
 
                 <Glow right="28%" top="0" />
@@ -52,7 +56,8 @@ const HomePage = () => {
                             className="max-w-[45%] z-20 ml-6 max-lg:max-w-1/2 max-md:max-w-full max-md:ml-0"
                         >
                             <ItemContent className="mt-22 max-sm:mt-2 [@media(max-width:380px)]:mt-12">
-                                <ItemTitle className="
+                                <ItemTitle
+                                    className="
                                     inline font-bold text-[34px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px]
                                     max-w-130 max-md:w-full text-(--white-cl) [&>strong]:text-(--icon-cl)
                                     max-lg:leading-tight max-md:leading-normal"
@@ -293,14 +298,21 @@ const HomePage = () => {
                 </Item>
             </section>
 
-            <section className="relative w-full mt-20 max-md:flex max-md:items-center max-sm:mt-12 max-sm:min-h-[60svh]!" id="about">
+            <section
+                className="relative w-full mt-20 max-md:flex max-md:items-center max-sm:mt-12 max-sm:min-h-[60svh]!"
+                id="about"
+            >
                 <Glow top="15%" left="4%" size="650px" />
 
-                <SideElement top="40%" left="-1%" side="left" hideBelow='xl'>
+                <SideElement top="40%" left="-1%" side="left" hideBelow="xl">
                     <img src={square} alt="" className="w-30 ml-2" />
                 </SideElement>
 
-                <img src={matrix} alt="" className="w-20 absolute top-[50%] right-0 max-sm:hidden" />
+                <img
+                    src={matrix}
+                    alt=""
+                    className="w-20 absolute top-[50%] right-0 max-sm:hidden"
+                />
 
                 <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-lg:px-0">
                     <div className="flex flex-wrap justify-between w-full py-20 max-lg:py-14 max-md:py-6">
@@ -327,8 +339,12 @@ const HomePage = () => {
                                         [&>h4]:text-xl [&>h4]:text-(--white-cl)"
                                 >
                                     <h4>{t('about.greeting')}</h4>
-                                    <p className="mt-8 max-xl:mt-4">{t('about.paragraphs.first')}</p>
-                                    <p className="mt-8 max-xl:mt-4">{t('about.paragraphs.second')}</p>
+                                    <p className="mt-8 max-xl:mt-4">
+                                        {t('about.paragraphs.first')}
+                                    </p>
+                                    <p className="mt-8 max-xl:mt-4">
+                                        {t('about.paragraphs.second')}
+                                    </p>
                                     <Link to="*" className="inline-block">
                                         <LiquidButton className="mt-9 max-lg:mt-4 cursor-pointer *:rounded-sm *:flex *:items-center *:text-(--white-cl)">
                                             <p>{t('about.button')}</p>
@@ -338,7 +354,11 @@ const HomePage = () => {
                                 </motion.div>
 
                                 <div className="flex flex-col justify-center items-center relative w-1/2 shrink-0 [@media(max-width:925px)]:hidden">
-                                    <img src={imgAboutMe} alt="" className="w-[80%] max-2xl:w-full max-xl:scale-120 max-xl:-mt-10" />
+                                    <img
+                                        src={imgAboutMe}
+                                        alt=""
+                                        className="w-[80%] max-2xl:w-full max-xl:scale-120 max-xl:-mt-10"
+                                    />
                                     <hr className="w-[50%] text-(--icon-cl) absolute right-24 bottom-0 max-xl:-bottom-10 max-xl:w-[70%] max-xl:right-0" />
                                     <img
                                         src={matrix}
@@ -357,7 +377,10 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className="mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 relative w-full max-sm:min-h-[60svh]!" id="contacts">
+            <section
+                className="mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 relative w-full max-sm:min-h-[60svh]!"
+                id="contacts"
+            >
                 <SideElement left="1%" top="60%" side="left">
                     <img src={matrix} alt="" className="w-23" />
                 </SideElement>

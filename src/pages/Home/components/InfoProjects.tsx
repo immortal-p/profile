@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import code from '@/assets/icons/code.svg'
-import infostormImg from '@/assets/images/infostormImg.png'
+import infostormImg from '@/assets/images/infostormImgN.svg'
 import nekoDash from '@/assets/images/weatherDashboardImg.webp'
 import nekoChat from '@/assets/images/nekoChatImg.webp'
 import { CardContent, CardTitle, CardDescription } from '@/components/ui/card'
@@ -30,13 +30,13 @@ const useProjectsData = () => {
             id: 1,
             imageUrl: infostormImg,
             imageAlt: 'infostorm',
-            stack: ['HTML', 'bootstrap', 'JS', 'REST API', 'Axios', 'yup'],
+            stack: ['TS', 'React', 'Redux', 'Tailwind', 'yup', 'i18n', 'Mantine'],
             title: 'Infostorm',
             description: t('projects.items.infostorm.description'),
             linkText: t('projects.labels.checkCode'),
-            projectUrl: 'https://github.com/immortal-p/frontend-project-11',
+            projectUrl: 'https://github.com/immortal-p/infostorm',
             live: t('projects.labels.live'),
-            liveUrl: 'https://frontend-project-11-three-azure.vercel.app/',
+            liveUrl: 'https://infostorm.vercel.app/',
         },
         {
             id: 2,
@@ -66,10 +66,9 @@ const useProjectsData = () => {
 }
 const InfoProjects = () => {
     const projects = useProjectsData()
-    
+
     return (
         <div className="mt-12 grid gap-3 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-md:gap-5">
-
             {projects.map((project, index) => (
                 <motion.div
                     key={project.id}
@@ -115,16 +114,23 @@ const InfoProjects = () => {
                                 <Button className="border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0">
                                     <Link
                                         to={project.liveUrl !== undefined ? project.liveUrl : ''}
+                                        target='_blank'
                                         className="py-2 px-4 max-sm:px-3"
                                     >
                                         {project.live}
                                     </Link>
                                 </Button>
                             )}
-                            <Button className="border rounded-sm border-(--text-cl) text-(--white-cl)">
-                                <Link to={project.projectUrl}>{project.linkText}</Link>
+                            <Link
+                                to={project.projectUrl}
+                                target='_blank'
+                                className="inline-flex items-center gap-2
+                                         border rounded-sm border-(--text-cl)
+                                         text-(--white-cl) px-4 py-2"
+                            >
+                                {project.linkText}
                                 <img src={code} className="h-4" alt="" />
-                            </Button>
+                            </Link>
                         </CardContent>
                     </LiquidGlassCard>
                 </motion.div>
