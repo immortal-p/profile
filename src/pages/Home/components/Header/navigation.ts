@@ -16,7 +16,7 @@ export const SECTIONS: NavigationSection[] = [
 ]
 
 export function useNavigation() {
-    const [activeSection, setActiveSection] = useState<SectionId | null>(null)
+    const [activeSection, setActiveSection] = useState<SectionId | null>('home')
 
     const scrollToSection = useCallback((id: SectionId) => {
         const element = document.getElementById(id)
@@ -40,7 +40,7 @@ export function useNavigation() {
             (entries) => {
                 const visible = entries
                     .filter((e) => e.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
                 if (visible[0]) {
                     setActiveSection(visible[0].target.id as SectionId)
