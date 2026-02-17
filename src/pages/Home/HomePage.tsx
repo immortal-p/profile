@@ -21,12 +21,12 @@ import SideElement from '@/components/ui/decor/SideElement'
 import { LiquidGlassCard, LiquidButton } from '@/components/kokonutui/liquid-glass-card'
 import { AnimatedSpan, Terminal, TypingAnimation } from '@/components/ui/terminal'
 import { useTranslation, Trans } from 'react-i18next'
+const InfoProjects = lazy(() => import('./components/InfoProjects'))
+const SkillsGrid = lazy(() => import('./components/SkillsGrid'))
+const Contacts = lazy(() => import('./components/Contacts'))
 
 const HomePage = () => {
     const { t } = useTranslation()
-    const InfoProjects = lazy(() => import('./components/InfoProjects'))
-    const SkillsGrid = lazy(() => import('./components/SkillsGrid'))
-    const Contacts = lazy(() => import('./components/Contacts'))
 
     return (
         <main className="w-full relative max-sm:[&>section]:min-h-svh">
@@ -71,7 +71,7 @@ const HomePage = () => {
                                     {t('hero.description')}
                                 </ItemDescription>
                                 <ItemActions className="mt-6 max-[840px]:mt-2 max-md:hidden">
-                                    <Link target="_blank" to="https://web.telegram.org/k/#@Spru71k">
+                                    <Link target="_blank" to="https://t.me/Spru71k">
                                         <LiquidButton className="*:border-(--icon-cl) *:rounded-md text-[16px] text-(--white-cl) transition duration-200 ease-in hover:text-(--white) cursor-pointer">
                                             {t('hero.button')}
                                         </LiquidButton>

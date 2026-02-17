@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { LiquidGlassCard } from '@/components/kokonutui/liquid-glass-card'
 import { useTranslation } from 'react-i18next'
 
-interface ProjectsList {
+interface ProjectList {
     id: number
     imageUrl: string
     imageAlt: string
@@ -21,115 +21,123 @@ interface ProjectsList {
     liveUrl?: string
 }
 
-const useProjectsData = () => {
+const PROJECTS: ProjectList[] = [
+    {
+        id: 1,
+        imageUrl: infostormImg,
+        imageAlt: 'infostorm',
+        stack: ['TS', 'React', 'Redux', 'Tailwind', 'yup', 'i18n', 'Mantine'],
+        title: 'Infostorm',
+        description: 'projects.items.infostorm.description',
+        linkText: 'projects.labels.checkCode',
+        projectUrl: 'https://github.com/immortal-p/infostorm',
+        live: 'projects.labels.live',
+        liveUrl: 'https://infostorm.vercel.app/',
+    },
+    {
+        id: 2,
+        imageUrl: nekoDash,
+        imageAlt: 'Weather Dashboard img',
+        stack: ['TS', 'React', 'Tailwind', 'OpenWeather API', 'Axios'],
+        title: 'Weather Dashboard',
+        description: 'projects.items.weather.description',
+        linkText: 'projects.labels.checkCode',
+        projectUrl: 'https://github.com/immortal-p/Weather-Dashboar',
+    },
+    {
+        id: 3,
+        imageUrl: nekoChat,
+        imageAlt: 'Real-Time Chat img',
+        stack: ['JS', 'React', 'Redux', 'Tailwind', 'Socket.io', 'JWT', 'State API'],
+        title: 'Neco Chat',
+        description: 'projects.items.necoChat.description',
+        linkText: 'projects.labels.checkCode',
+        projectUrl: 'https://github.com/immortal-p/frontend-project-12',
+        live: 'projects.labels.live',
+        liveUrl: 'https://frontend-project-12-ndyp.onrender.com',
+    },
+]
+
+const TextContent = ({ project }: { project: ProjectList }) => {
     const { t } = useTranslation()
-
-    const PROJECTS: ProjectsList[] = [
-        {
-            id: 1,
-            imageUrl: infostormImg,
-            imageAlt: 'infostorm',
-            stack: ['TS', 'React', 'Redux', 'Tailwind', 'yup', 'i18n', 'Mantine'],
-            title: 'Infostorm',
-            description: t('projects.items.infostorm.description'),
-            linkText: t('projects.labels.checkCode'),
-            projectUrl: 'https://github.com/immortal-p/infostorm',
-            live: t('projects.labels.live'),
-            liveUrl: 'https://infostorm.vercel.app/',
-        },
-        {
-            id: 2,
-            imageUrl: nekoDash,
-            imageAlt: 'Weather Dashboard img',
-            stack: ['TS', 'React', 'Tailwind', 'OpenWeather API', 'Axios'],
-            title: 'Weather Dashboard',
-            description: t('projects.items.weather.description'),
-            linkText: t('projects.labels.checkCode'),
-            projectUrl: 'https://github.com/immortal-p/Weather-Dashboar',
-        },
-        {
-            id: 3,
-            imageUrl: nekoChat,
-            imageAlt: 'Real-Time Chat img',
-            stack: ['JS', 'React', 'Redux', 'Tailwind', 'Socket.io', 'JWT', 'State API'],
-            title: 'Neco Chat',
-            description: t('projects.items.necoChat.description'),
-            linkText: t('projects.labels.checkCode'),
-            projectUrl: 'https://github.com/immortal-p/frontend-project-12',
-            live: t('projects.labels.live'),
-            liveUrl: 'https://frontend-project-12-ndyp.onrender.com',
-        },
-    ]
-
-    return PROJECTS
+    console.log('Text Content render:', project.title)
+    return (
+        <CardContent className="p-4 space-y-4 max-sm:px-3 max-sm:py-2">
+            <CardTitle className="text-2xl max-md:text-xl font-medium text-(--white-cl)">
+                {project.title}
+            </CardTitle>
+            <CardDescription className="text-(--text-cl) text-[16px] max-sm:text-[15px]">
+                {t(project.description)}
+            </CardDescription>
+            {project.live && (
+                <Link
+                    to={project.liveUrl !== undefined ? project.liveUrl : ''}
+                    target="_blank"
+                    className="py-2 px-6 max-sm:px-3 border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0"
+                >
+                    {t(project.live)}
+                </Link>
+            )}
+            <Link
+                to={project.projectUrl}
+                target="_blank"
+                className="inline-flex items-center gap-2
+                                         border rounded-sm border-(--text-cl)
+                                         text-(--white-cl) px-4 py-2"
+            >
+                {t(project.linkText)}
+                <img src={code} className="h-4" alt="" />
+            </Link>
+        </CardContent>
+    )
 }
-const InfoProjects = () => {
-    const projects = useProjectsData()
 
+const ProjectCard = ({ project }: { project: ProjectList }) => {
+    console.log('ProjectCard render...', project.title)
+    return (
+        <LiquidGlassCard className="rounded-md bg-transparent shadow-none border-none p-1 *:shadow-0 z-20">
+            <div className="aspect-video w-full relative">
+                <img
+                    src={project.imageUrl}
+                    alt={project.imageAlt}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover rounded-tr-md rounded-tl-md"
+                />
+            </div>
+
+            <div className="p-2 flex flex-wrap gap-2 border-t border-b border-(--text-cl) text-[16px] text-(--text-cl) relative">
+                {project.stack.map((sk, index) => (
+                    <span
+                        key={index}
+                        className="border border-(text-cl) rounded-sm px-2 py-1 whitespace-nowrap inline-block"
+                    >
+                        {sk}
+                    </span>
+                ))}
+            </div>
+
+            <TextContent project={project} />
+        </LiquidGlassCard>
+    )
+}
+
+const InfoProjects = () => {
+    console.log('InfoProjects render')
     return (
         <div className="mt-12 grid gap-3 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-md:gap-5">
-            {projects.map((project, index) => (
+            {PROJECTS.map((project) => (
                 <motion.div
-                    key={project.id}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
                         duration: 1.5,
                         ease: 'easeOut',
-                        delay: index * 0.2,
+                        delay: project.id * 0.2,
                     }}
                     viewport={{ once: true }}
                 >
-                    <LiquidGlassCard className="rounded-md bg-transparent shadow-none border-none p-1 *:shadow-0 z-20">
-                        <div className="aspect-video w-full relative">
-                            <img
-                                src={project.imageUrl}
-                                alt={project.imageAlt}
-                                loading="eager"
-                                decoding="async"
-                                className="w-full h-full object-cover rounded-tr-md rounded-tl-md"
-                            />
-                        </div>
-
-                        <div className="p-2 flex flex-wrap gap-2 border-t border-b border-(--text-cl) text-[16px] text-(--text-cl) relative">
-                            {project.stack.map((sk, index) => (
-                                <span
-                                    key={index}
-                                    className="border border-(text-cl) rounded-sm px-2 py-1 whitespace-nowrap inline-block"
-                                >
-                                    {sk}
-                                </span>
-                            ))}
-                        </div>
-
-                        <CardContent className="p-4 space-y-4 max-sm:px-3 max-sm:py-2">
-                            <CardTitle className="text-2xl max-md:text-xl font-medium text-(--white-cl)">
-                                {project.title}
-                            </CardTitle>
-                            <CardDescription className="text-(--text-cl) text-[16px] max-sm:text-[15px]">
-                                {project.description}
-                            </CardDescription>
-                            {project.live && (
-                                <Link
-                                    to={project.liveUrl !== undefined ? project.liveUrl : ''}
-                                    target="_blank"
-                                    className="py-2 px-6 max-sm:px-3 border rounded-sm border-(--icon-cl) text-(--white-cl) mr-4 mb-0"
-                                >
-                                    {project.live}
-                                </Link>
-                            )}
-                            <Link
-                                to={project.projectUrl}
-                                target="_blank"
-                                className="inline-flex items-center gap-2
-                                         border rounded-sm border-(--text-cl)
-                                         text-(--white-cl) px-4 py-2"
-                            >
-                                {project.linkText}
-                                <img src={code} className="h-4" alt="" />
-                            </Link>
-                        </CardContent>
-                    </LiquidGlassCard>
+                    <ProjectCard key={project.id} project={project} />
                 </motion.div>
             ))}
         </div>
