@@ -15,15 +15,15 @@ const language = [
 
 export function LanguageSwitcher() {
     const { i18n } = useTranslation()
+    const currentLanguage = language.find((lng) => lng.code === i18n.language)
 
     const changeLanguage = (lng: string) => {
+        if (lng === currentLanguage?.code) return
         i18n.changeLanguage(lng)
     }
 
-    const currentLanguage = language.find((lng) => lng.code === i18n.language)
-
     return (
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="ghost"
@@ -36,7 +36,7 @@ export function LanguageSwitcher() {
             <DropdownMenuContent
                 align="end"
                 asChild
-                className="w-(--radix-dropdown-menu-trigger-width) min-w-(--radix-dropdown-menu-trigger-width) hover:border-(--white) transition duration-300"
+                className="w-(--radix-dropdown-menu-trigger-width) min-w-(--radix-dropdown-menu-trigger-width) hover:border-(--white) transition duration-300 z-50 relative"
             >
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
