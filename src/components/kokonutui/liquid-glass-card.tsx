@@ -15,6 +15,7 @@ import React from 'react'
 import { Button, type ButtonProps } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { useMemo } from 'react'
 
 // Constants for better maintainability
 const GLASS_SHADOW_LIGHT =
@@ -146,6 +147,8 @@ function LiquidGlassCard({
 }: LiquidGlassCardProps) {
     const filterId = React.useId()
 
+    const backdropStyle = useMemo(() => ({ backdropFilter: `url("#${filterId}")` }), [filterId])
+
     return (
         <Card className={cn(liquidGlassCardVariants({ glassSize }), className)} {...props}>
             <div
@@ -159,7 +162,7 @@ function LiquidGlassCard({
                 <>
                     <div
                         className="-z-10 pointer-events-none absolute inset-0 overflow-hidden rounded-lg"
-                        style={{ backdropFilter: `url("#${filterId}")` }}
+                        style={backdropStyle}
                     />
                     <GlassFilter id={filterId} scale={DEFAULT_GLASS_FILTER_SCALE} />
                 </>
@@ -171,6 +174,5 @@ function LiquidGlassCard({
         </Card>
     )
 }
-
 
 export { LiquidButton, LiquidGlassCard }
