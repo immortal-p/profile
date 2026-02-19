@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 
 export type SectionId = 'home' | 'works' | 'skills' | 'about' | 'contacts'
 
@@ -18,47 +18,52 @@ export const SECTIONS: NavigationSection[] = [
 export function useNavigation() {
     const [activeSection, setActiveSection] = useState<SectionId | null>('home')
 
+    const isScrollingByClick = useRef(false)
+
     const scrollToSection = useCallback((id: SectionId) => {
+        setActiveSection(id)
+        isScrollingByClick.current = true
+
         const element = document.getElementById(id)
-
         if (element) {
-            const HEADER_HEIGHT = 40
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - HEADER_HEIGHT
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth',
-            })
+            const offsetPosition =
+                element.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
         }
+
+        setTimeout(() => {
+            isScrollingByClick.current = false
+        }, 800)
     }, [])
 
-    const HEADER_HEIGHT = 40
+    const HEADER_HEIGHT: number = 0
+    const handleScroll = () => {
+        if (isScrollingByClick.current) return
+        const sections = document.querySelectorAll('section[id]')
+        const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 10
+
+        if (isAtBottom) {
+            const last = sections[sections.length - 1]
+            setActiveSection(last.id as SectionId)
+            return
+        }
+        let current: SectionId = 'home'
+
+        sections.forEach((section) => {
+            const top = section.getBoundingClientRect().top
+            if (top <= HEADER_HEIGHT) {
+                current = section.id as SectionId
+            }
+        })
+
+        setActiveSection(current)
+    }
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        handleScroll()
 
-                if (visible[0]) {
-                    setActiveSection(visible[0].target.id as SectionId)
-                }
-            },
-            {
-                root: null,
-                threshold: [0.25, 0.5, 0.75],
-                rootMargin: `-${HEADER_HEIGHT}px 0px 0px 0px`,
-            },
-        )
-
-        document
-            .querySelectorAll<HTMLElement>('section[id]')
-            .forEach((section) => observer.observe(section))
-
-        return () => observer.disconnect()
+        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
-
     return { activeSection, scrollToSection }
 }
