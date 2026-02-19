@@ -12,7 +12,7 @@ import matrixLong from '@/assets/icons/matrix-long.svg'
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item'
 import { Link } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
-import HomeHeader from './components/Header/HomeHeader'
+import HomeHeader from '../Home/components/Header/HomeHeader'
 import VericalLines from '@/components/ui/decor/VerticalLines'
 import IconsInfo from '@/components/ui/decor/IconsInfo'
 import ScrollLine from '@/components/ui/decor/ScrollLine'
@@ -21,9 +21,9 @@ import SideElement from '@/components/ui/decor/SideElement'
 import { LiquidGlassCard, LiquidButton } from '@/components/kokonutui/liquid-glass-card'
 import { AnimatedSpan, Terminal, TypingAnimation } from '@/components/ui/terminal'
 import { useTranslation, Trans } from 'react-i18next'
-const InfoProjects = lazy(() => import('./components/InfoProjects'))
-const SkillsGrid = lazy(() => import('./components/SkillsGrid'))
-const Contacts = lazy(() => import('./components/Contacts'))
+const InfoProjects = lazy(() => import('../Home/components/InfoProjects'))
+const SkillsGrid = lazy(() => import('../Home/components/SkillsGrid'))
+const Contacts = lazy(() => import('../Home/components/Contacts'))
 
 const HomePage = () => {
     const { t } = useTranslation()
@@ -33,7 +33,7 @@ const HomePage = () => {
             <HomeHeader />
 
             <section
-                className="relative w-full pt-32 max-lg:pt-0 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 max-sm:flex max-sm:items-center"
+                className="relative w-full pt-32 max-lg:pt-24 max-md:pt-16 max-sm:pt-12 max-sm:flex max-sm:items-center"
                 id="home"
             >
                 <SideElement side="right" top="86%" right="3%" hideBelow="sm">
@@ -52,7 +52,7 @@ const HomePage = () => {
                         <motion.div
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 2, ease: 'easeOut' }}
+                            transition={{ duration: 1.6, ease: 'easeOut' }}
                             className="max-w-[45%] z-20 ml-6 max-lg:max-w-1/2 max-md:max-w-full max-md:ml-0"
                         >
                             <ItemContent className="mt-22 max-sm:mt-2 [@media(max-width:380px)]:mt-12">
@@ -83,18 +83,20 @@ const HomePage = () => {
                         <motion.div
                             initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 2, ease: 'easeOut' }}
+                            transition={{ duration: 1.6, ease: 'easeOut' }}
                             className="max-w-1/2 w-full z-20 flex justify-center relative max-lg:max-w-[45%] max-md:max-w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
                         >
                             <Item className="flex justify-start p-0 w-[78%] max-lg:w-full max-sm:min-h-70.5">
                                 <img
                                     src={startImg}
                                     alt=""
+                                    fetchPriority="high"
                                     className="w-[84%] max-xl:w-full max-md:w-[70%] z-20 max-md:scale-x-[-1] max-sm:w-[80%] [@media(max-width:420px)]:w-[90%]"
                                 />
                                 <img
                                     src={geomFrom}
                                     alt=""
+                                    loading="lazy"
                                     className="absolute left-[18%] top-12 w-[24%] max-lg:top-10 max-md:left-[-5%]"
                                 />
                                 <LiquidGlassCard
@@ -113,7 +115,7 @@ const HomePage = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.5, ease: 'easeOut' }}
+                            transition={{ duration: 1.2, ease: 'easeOut' }}
                             className="mt-28 flex flex-col items-center w-full max-md:mt-20 [@media(max-width:420px)]:mt-12"
                         >
                             <div className="flex flex-col items-end max-w-max">
@@ -150,10 +152,7 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section
-                className="relative w-full mt-32 max-lg:mt-24 max-md:mt-16 max-sm:mt-12 max-xl:min-h-125"
-                id="works"
-            >
+            <section className="relative w-full max-xl:min-h-125" id="works">
                 <SideElement side="left" top="20%" left="3.3%">
                     <img
                         src={matrix}
@@ -168,7 +167,7 @@ const HomePage = () => {
 
                 <Glow right="22%" top="20%" size="560px" />
 
-                <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-sm:p-0">
+                <div className="container mx-auto px-4 pt-46 relative z-10 max-lg:max-w-[95%] max-lg:pt-24 max-md:pt-16 max-sm:p-0 max-sm:pt-12">
                     <div className="flex flex-cl justify-center min-w-full relative">
                         <Item className="block min-w-full">
                             <ItemContent className="w-full flex flex-row justify-between items-center">
@@ -198,108 +197,107 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section
-                className="container mx-auto px-4 py-20 z-10 mt-26 max-lg:max-w-[95%] max-lg:mt-4 max-lg:py-14 max-md:mt-2 max-md:py-6 max-sm:px-0"
-                id="skills"
-            >
-                <Item className="block min-w-full">
-                    <ItemTitle
-                        className="
+            <section className="relative w-full" id="skills">
+                <div className="container mx-auto px-4 pt-56 pb-20 z-10 max-lg:max-w-[95%] max-lg:pt-20 max-lg:pb-14 max-md:pt-14 max-md:pb-6 max-sm:px-0">
+                    <Item className="block min-w-full">
+                        <ItemTitle
+                            className="
                             text-[32px] max-lg:text-[30px] max-md:text-[26px] max-sm:text-[22px] text-(--icon-cl) [&>strong]:text-(--white-cl)
                             [&>h1]:whitespace-nowrap w-full max-w-[70%] h-11"
-                    >
-                        <Trans i18nKey={'skills.title'}>
-                            #<strong>skills</strong>
-                        </Trans>
-
-                        <ScrollLine width="45%" />
-                    </ItemTitle>
-
-                    <ItemContent className="mt-12 flex flex-row justify-between min-w-full w-full [@media(max-width:925px)]:flex-col">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1.5, ease: 'easeOut' }}
-                            viewport={{ once: true, margin: '50px' }}
-                            className="w-full max-w-[40%] max-xl:max-w-[48%] [@media(max-width:925px)]:max-w-full"
                         >
-                            <Terminal
-                                className="
+                            <Trans i18nKey={'skills.title'}>
+                                #<strong>skills</strong>
+                            </Trans>
+
+                            <ScrollLine width="45%" />
+                        </ItemTitle>
+
+                        <ItemContent className="mt-12 flex flex-row justify-between min-w-full w-full [@media(max-width:925px)]:flex-col">
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1.2, ease: 'easeOut' }}
+                                viewport={{ once: true, margin: '50px' }}
+                                className="w-full max-w-[40%] max-xl:max-w-[48%] [@media(max-width:925px)]:max-w-full"
+                            >
+                                <Terminal
+                                    className="
                                     border-0 bg-(--background)/40 backdrop-blur-md *:border-0
                                     shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_0px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_12px_0px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]
                                     max-xl:min-h-[80%] [@media(max-width:925px)]:max-w-full"
-                            >
-                                <TypingAnimation className="text-(--white-cl)">
-                                    &gt; system_check --list-skills
-                                </TypingAnimation>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] Languages... [TypeScript, JavaScript]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] Frameworks... [React, Vite]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] Styles... [Tailwind, SASS, Shadcn/UI]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] Other... [HTML, Pug, REST, Jest]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] Tools... [Git, Linux, Figma, Fedora]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [scanning] UI... [Shadcn, Mantine, MagicUI]
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-green-600">
-                                    [status] All systems operational.
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-red-700">
-                                    [warning] {t('skills.warning')}
-                                </AnimatedSpan>
-
-                                <AnimatedSpan className="text-red-700">
-                                    [critical] {t('skills.critical')}
-                                </AnimatedSpan>
-
-                                <TypingAnimation
-                                    delay={500}
-                                    className="text-muted-foreground text-(--white-cl)"
                                 >
-                                    &gt; execute: make_coffee --double-espresso
-                                </TypingAnimation>
+                                    <TypingAnimation className="text-(--white-cl)">
+                                        &gt; system_check --list-skills
+                                    </TypingAnimation>
 
-                                <TypingAnimation
-                                    delay={1500}
-                                    className="text-muted-foreground text-(--white-cl)"
-                                >
-                                    [process] Brewing... ████████░░ 80%
-                                </TypingAnimation>
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] Languages... [TypeScript, JavaScript]
+                                    </AnimatedSpan>
 
-                                <TypingAnimation delay={2500} className="text-(--white-cl)">
-                                    &gt; status: online and motivated
-                                </TypingAnimation>
-                            </Terminal>
-                        </motion.div>
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] Frameworks... [React, Vite]
+                                    </AnimatedSpan>
 
-                        <div className="max-w-[58%] max-xl:max-w-[50%] [@media(max-width:925px)]:max-w-full [@media(max-width:925px)]:mt-4">
-                            <Suspense fallback={null}>
-                                <SkillsGrid />
-                            </Suspense>
-                        </div>
-                    </ItemContent>
-                </Item>
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] Styles... [Tailwind, SASS, Shadcn/UI]
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] Other... [HTML, Pug, REST, Jest]
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] Tools... [Git, Linux, Figma, Fedora]
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-green-600">
+                                        [scanning] UI... [Shadcn, Mantine, MagicUI]
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-green-600">
+                                        [status] All systems operational.
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-red-700">
+                                        [warning] {t('skills.warning')}
+                                    </AnimatedSpan>
+
+                                    <AnimatedSpan className="text-red-700">
+                                        [critical] {t('skills.critical')}
+                                    </AnimatedSpan>
+
+                                    <TypingAnimation
+                                        delay={500}
+                                        className="text-muted-foreground text-(--white-cl)"
+                                    >
+                                        &gt; execute: make_coffee --double-espresso
+                                    </TypingAnimation>
+
+                                    <TypingAnimation
+                                        delay={1500}
+                                        className="text-muted-foreground text-(--white-cl)"
+                                    >
+                                        [process] Brewing... ████████░░ 80%
+                                    </TypingAnimation>
+
+                                    <TypingAnimation delay={2500} className="text-(--white-cl)">
+                                        &gt; status: online and motivated
+                                    </TypingAnimation>
+                                </Terminal>
+                            </motion.div>
+
+                            <div className="max-w-[58%] max-xl:max-w-[50%] [@media(max-width:925px)]:max-w-full [@media(max-width:925px)]:mt-4">
+                                <Suspense fallback={null}>
+                                    <SkillsGrid />
+                                </Suspense>
+                            </div>
+                        </ItemContent>
+                    </Item>
+                </div>
             </section>
 
             <section
-                className="relative w-full mt-20 max-md:flex max-md:items-center max-sm:mt-12 max-sm:min-h-[60svh]!"
+                className="relative w-full max-md:flex max-md:items-center max-sm:min-h-[60svh]!"
                 id="about"
             >
                 <Glow top="15%" left="4%" size="650px" />
@@ -311,11 +309,12 @@ const HomePage = () => {
                 <img
                     src={matrix}
                     alt=""
+                    loading="lazy"
                     className="w-20 absolute top-[50%] right-0 max-sm:hidden"
                 />
 
-                <div className="container mx-auto px-4 relative z-10 max-lg:max-w-[95%] max-lg:px-0">
-                    <div className="flex flex-wrap justify-between w-full py-20 max-lg:py-14 max-md:py-6">
+                <div className="container mx-auto px-4 pt-20 relative z-10 max-lg:max-w-[95%] max-lg:px-0">
+                    <div className="flex flex-wrap justify-between w-full pt-20 pb-10 max-lg:pt-24 max-lg:pb-14 max-md:pt-16 max-md:pb-6 max-sm:pt-12">
                         <Item className="block min-w-full">
                             <ItemTitle
                                 className="
@@ -357,17 +356,20 @@ const HomePage = () => {
                                     <img
                                         src={imgAboutMe}
                                         alt=""
+                                        loading="lazy"
                                         className="w-[80%] max-2xl:w-full max-xl:scale-120 max-xl:-mt-10"
                                     />
                                     <hr className="w-[50%] text-(--icon-cl) absolute right-24 bottom-0 max-xl:-bottom-10 max-xl:w-[70%] max-xl:right-0" />
                                     <img
                                         src={matrix}
                                         alt=""
+                                        loading="lazy"
                                         className="absolute w-20 top-9 left-40 max-xl:hidden"
                                     />
                                     <img
                                         src={matrixLong}
                                         alt=""
+                                        loading="lazy"
                                         className="absolute top-[55%] right-28 max-xl:right-8"
                                     />
                                 </div>
@@ -406,7 +408,7 @@ const HomePage = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{
-                                        duration: 1.5,
+                                        duration: 1.6,
                                         ease: 'easeOut',
                                     }}
                                     viewport={{ once: true, margin: '-100px' }}
