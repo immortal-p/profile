@@ -9,7 +9,7 @@ export default {
             contacts: 'contacts',
         },
         hero: {
-            title: 'Bargest is a <1>web designer</1> and <1>front-end developer</1>',
+            title: 'Akhmed is a <1>web designer</1> and <1>front-end developer</1>',
             description: 'Turning complex ideas into elegant, high-performance web solutions.',
             button: 'Contact Me !',
             status: 'Currently working on <1>Portfolio</1>',
@@ -46,19 +46,18 @@ export default {
         },
         about: {
             title: '#<1>about-me</1>',
-            greeting: "Hello, I'm Bargest!",
+            greeting: "Hi, I'm Bargest!",
             paragraphs: {
                 first: `
-                  I’m a Moscow-based front-end developer with a focus on building scalable
-                  and architecturally sound web applications. For over a year, I’ve been
-                  transforming complex ideas into clean, high-performance code, ensuring
-                  that every project is as robust under the hood as it is beautiful on the surface.
+                  I'm a frontend developer from Moscow specializing in React and TypeScript.
+                  My expertise lies in building complex web services that solve real business
+                  problems - from retail automation to e-commerce platforms and customer dashboards.
                 `,
                 second: `
-                  My approach is rooted in precision: I don't just build interfaces;
-                  I design sustainable systems. I am deeply passionate about mastering the
-                  latest frameworks and modernizing the developer experience to deliver
-                  seamless, user-centric products.
+                  I don't just complete tasks - I actively participate in designing solutions,
+                  mentor junior developers through code reviews, and constantly look for ways to make
+                  the development process smoother. I'm currently looking for a product team where I
+                  can apply my experience to build truly useful and reliable applications.
                 `,
             },
             button: 'Read More',
