@@ -96,7 +96,6 @@ const HomePage = () => {
                                 <img
                                     src={geomFrom}
                                     alt=""
-                                    loading="lazy"
                                     className="absolute left-[18%] top-12 w-[24%] max-lg:top-10 max-md:left-[-5%]"
                                 />
                                 <LiquidGlassCard
@@ -309,7 +308,6 @@ const HomePage = () => {
                 <img
                     src={matrix}
                     alt=""
-                    loading="lazy"
                     className="w-20 absolute top-[50%] right-0 max-sm:hidden"
                 />
 
@@ -356,20 +354,17 @@ const HomePage = () => {
                                     <img
                                         src={imgAboutMe}
                                         alt=""
-                                        loading="lazy"
                                         className="w-[80%] max-2xl:w-full max-xl:scale-120 max-xl:-mt-10"
                                     />
                                     <hr className="w-[50%] text-(--icon-cl) absolute right-24 bottom-0 max-xl:-bottom-10 max-xl:w-[70%] max-xl:right-0" />
                                     <img
                                         src={matrix}
                                         alt=""
-                                        loading="lazy"
                                         className="absolute w-20 top-9 left-40 max-xl:hidden"
                                     />
                                     <img
                                         src={matrixLong}
                                         alt=""
-                                        loading="lazy"
                                         className="absolute top-[55%] right-28 max-xl:right-8"
                                     />
                                 </div>
